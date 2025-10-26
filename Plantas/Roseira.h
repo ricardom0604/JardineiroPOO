@@ -1,0 +1,16 @@
+//
+// Created by bruni on 23/10/2025.
+//
+
+#ifndef ROSEIRA_H
+#define ROSEIRA_H
+
+#include "../Plantas/Planta.h"
+
+
+class Roseira : public Planta{
+public:
+};
+
+
+#endif //ROSEIRA_H

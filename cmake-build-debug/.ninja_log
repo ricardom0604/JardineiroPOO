@@ -1,0 +1,23 @@
+# ninja log v6
+2	397	7832214328457338	build.ninja	38bb20a29095e9bb
+2	397	7832214328457338	C:/Users/ricar/Documents/POO/TP/cmake-build-debug/cmake_install.cmake	38bb20a29095e9bb
+35	123	7832214329606388	CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj	b3cebdc7659eb159
+39	128	7832214329652549	CMakeFiles/TP.dir/Ferramentas/FerramentaZ.cpp.obj	27dc923c2e894264
+43	141	7832214329692837	CMakeFiles/TP.dir/Ferramentas/PacoteAdubo.cpp.obj	c740e9e22f427666
+47	154	7832214329732447	CMakeFiles/TP.dir/Ferramentas/Regador.cpp.obj	a653af0efbafa1e9
+51	172	7832214329774832	CMakeFiles/TP.dir/Ferramentas/TesouraPoda.cpp.obj	838a8e5b2a115dd7
+56	181	7832214329819832	CMakeFiles/TP.dir/Plantas/Cacto.cpp.obj	1f1f02b8190c926b
+123	228	7832214330488190	CMakeFiles/TP.dir/Plantas/ErvaDaninha.cpp.obj	9bc61cf778d1c927
+129	232	7832214330548857	CMakeFiles/TP.dir/Plantas/Exotica.cpp.obj	9b8765d7602545f9
+172	255	7832214330976666	CMakeFiles/TP.dir/Comandos.cpp.obj	4af5dfd1df3a114b
+17	130	7832215506079993	CMakeFiles/TP.dir/Jardineiro.cpp.obj	7b67eb01973ab5c
+29	137	7832215506202802	CMakeFiles/TP.dir/Posicao.cpp.obj	a21ac13a8c4b08d3
+2	392	7832215505923251	CMakeFiles/TP.dir/Plantas/Planta.cpp.obj	5b4ec8225b7d29f
+23	402	7832215506140483	CMakeFiles/TP.dir/main.cpp.obj	579bef4ca4c8f0a6
+8	114	7832215709326069	CMakeFiles/TP.dir/Jardim.cpp.obj	fb903002c62848f5
+5	309	7832216077956879	CMakeFiles/TP.dir/Plantas/Planta.cpp.obj	5b4ec8225b7d29f
+4	299	7832216513572026	CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj	e6a6a5b8e0923aef
+5	287	7832216690926039	CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj	e6a6a5b8e0923aef
+5	344	7832216891193570	CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj	e6a6a5b8e0923aef
+5	385	7832217132725275	CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj	e6a6a5b8e0923aef
+386	474	7832217136537468	TP.exe	962aec7091af5d87
