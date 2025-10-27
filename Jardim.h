@@ -9,11 +9,12 @@
 
 
 class Jardim {
-    char mapa[Settings::Jardim::tamanho][Settings::Jardim::tamanho];
+    int l, c;
+    char **mapa;
 
 public:
-    Jardim();
-    void inicializa();
+    Jardim(int l, int c);
+    ~Jardim();
     void mostra();
 };
 

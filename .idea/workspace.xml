@@ -23,22 +23,28 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="mudanca">
-      <change afterPath="$PROJECT_DIR$/Comandos/LArea.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Comandos/LArea.h" afterDir="false" />
+    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="mudanca2">
+      <change afterPath="$PROJECT_DIR$/Comando.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Comando.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Comandos.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Comandos/Comando.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Comandos.h" beforeDir="false" afterPath="$PROJECT_DIR$/Comandos/Comando.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Comandos/Comando.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Comandos/Comando.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Comandos/LArea.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Comandos/LArea.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Jardim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings.h" beforeDir="false" afterPath="$PROJECT_DIR$/Settings.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jardim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardim.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardim.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/TP.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/TP.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +176,7 @@
       <updated>1761515614565</updated>
       <workItem from="1761515615904" duration="2142000" />
       <workItem from="1761517779988" duration="665000" />
-      <workItem from="1761585602465" duration="1655000" />
+      <workItem from="1761585602465" duration="4869000" />
     </task>
     <task id="LOCAL-00001" summary="commit inicial">
       <option name="closed" value="true" />
@@ -196,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761585905959</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="mudanca2">
+      <option name="closed" value="true" />
+      <created>1761587545652</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1761587545652</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +225,8 @@
     <MESSAGE value="commit inicial" />
     <MESSAGE value="correcao" />
     <MESSAGE value="mudanca" />
-    <option name="LAST_COMMIT_MESSAGE" value="mudanca" />
+    <MESSAGE value="mudanca2" />
+    <option name="LAST_COMMIT_MESSAGE" value="mudanca2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

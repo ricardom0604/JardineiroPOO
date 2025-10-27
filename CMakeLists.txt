@@ -36,6 +36,6 @@ add_executable(TP
         Posicao.cpp
         Posicao.h
         Settings.h
-        Comandos/LArea.cpp
-        Comandos/LArea.h
+        Comando.cpp
+        Comando.h
 )
