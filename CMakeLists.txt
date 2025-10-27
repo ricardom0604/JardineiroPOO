@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 4.0)
-project(TP)
+cmake_minimum_required(VERSION 3.29.6)
+project("POO TP")
 
 set(CMAKE_CXX_STANDARD 14)
 
