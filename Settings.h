@@ -5,7 +5,7 @@ class Settings {
     public:
     class Jardim {
     public:
-        static const int tamanho = 10;
+        static const int tamanho = 10; // temporario
         static const int agua_min = 80;
         static const int agua_max = 100;
         static const int nutrientes_min = 40;

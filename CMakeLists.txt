@@ -28,8 +28,6 @@ add_executable(TP
         Plantas/Planta.h
         Plantas/Roseira.cpp
         Plantas/Roseira.h
-        Comandos.cpp
-        Comandos.h
         Jardim.cpp
         Jardim.h
         Jardineiro.cpp
@@ -37,4 +35,7 @@ add_executable(TP
         main.cpp
         Posicao.cpp
         Posicao.h
-        Settings.h)
+        Settings.h
+        Comandos/LArea.cpp
+        Comandos/LArea.h
+)

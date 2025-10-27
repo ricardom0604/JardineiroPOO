@@ -7,8 +7,9 @@
 
 
 
-class Comandos {
-
+class Comando {
+    public:
+      virtual void executa();
 };
 
 
