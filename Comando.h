@@ -11,7 +11,9 @@
 class Comando {
 public:
     Comando();
-    Jardim criaJardim();
+    ~Comando();
+    std::string obtemInput(std::string message);
+    bool executa();
 };
 
 

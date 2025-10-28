@@ -4,16 +4,30 @@
 
 #include "Jardim.h"
 
-#include <cstdio>
+
 
 #include "Jardineiro.h"
 
-Jardim::Jardim(int l, int c) : l(l), c(c) {
+
+Jardim::Jardim()  {
+    std::string input;
+    std::cout << "Introduza:\n";
+    std::cout << "-jardim <n> <n>\n\nComando: ";
+    getline(std::cin, input);
+
+    std::istringstream iss(input);
+    iss >> input >> l >> c;
+
+    if (!(input == "jardim")) {
+        l = 10;
+        c = 10;
+    }
+
     mapa = new char*[l];
     for (int i = 0; i < l; i++) {
         mapa[i] = new char[c];
         for (int j = 0; j < c; j++) {
-            mapa[i][j] = '.';
+            mapa[i][j] = ' ';
         }
     }
 }
@@ -23,7 +37,6 @@ Jardim::~Jardim() {
         delete[] mapa[i];
     delete[] mapa;
 }
-
 
 void Jardim::mostra() {
     printf("   ");

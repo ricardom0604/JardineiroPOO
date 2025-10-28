@@ -5,10 +5,13 @@
 
 int main()
 {
-    Comando cmd;
-    Jardim j = cmd.criaJardim();
-
+    Jardim j;
+    Comando c;
     j.mostra();
+    while (true) {
+        if (!c.executa())
+            break;
+    }
 
     return 0;
 }
