@@ -11,8 +11,8 @@
 
 Jardim::Jardim()  {
     std::string input;
-    std::cout << "Introduza:\n";
-    std::cout << "-jardim <n> <n>\n\nComando: ";
+    std::cout << "Introduza o tamanho do jardim:\n";
+    std::cout << "-jardim <linha> <coluna>\n\nComando: ";
     getline(std::cin, input);
 
     std::istringstream iss(input);

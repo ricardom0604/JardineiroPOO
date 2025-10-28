@@ -23,12 +23,13 @@ std::string Comando::obtemInput(std::string message) {
 
 bool Comando::executa() {
     std::string input;
-    std::cout << "\nIntroduza:\n";
-    std::cout << "-avanca     \n-lplantas\nlplanta <l> <c> puto olha a stora... ";
-    std::cout << "-lplantas\n-lplantas\nlplanta <l><c> puto olha a stora...  ";
-    std::cout << "-lplanta <l> <c>   -lplantas\nlplanta <l><c> puto olha a stora... ";
-    std::cout << "-larea     -lplantas  lplanta <l><c> puto olha a stora...  ";
-    std::cout << "-lsolo <l> <c> [n]\n-lplantas\nlplanta <l><c> puto olha a stora... \n\n";
+    std::cout << "\n==========================/LISTA DE COMANDOS/==========================================\n";
+    std::cout << "-avanca            -lplantas     -colhe <l> <c>            -grava <nome>\n";
+    std::cout << "-entra <l> <c>     -lplanta      -planta <l> <c> <tipo>    -recupera <nome>\n";
+    std::cout << "-sai               -larea        -larga                    -apaga <nome>\n";
+    std::cout << "                   -lsolo        -pega <n>                 -executa <nome-do-ficheiro>\n";
+    std::cout << "                   -lferr        -compra <n>               -fim\n";
+    std::cout << "=============================================================================h==========\n";
     input = obtemInput("Comando:");
 
     std::istringstream iss(input);
@@ -69,8 +70,10 @@ bool Comando::executa() {
     }else if (input == "executa") {
         std::cout << "\nExecuta programa\n";
     }else if (input == "fim") {
-        std::cout << "\nFim do programa\n";
+        std::cout << "Fim do programa\n\nTrabalho Feito por:  Bruna Alves de Sousa   N 2022139713\n                     Ricardo Antonio Ribeiro Miguel   N 2022135245\n";
         return false;
+    }else {
+        std::cout << "\nComando Invalido! Use um da Lista de Comandos.\n";
     }
     return true;//fim
 }
