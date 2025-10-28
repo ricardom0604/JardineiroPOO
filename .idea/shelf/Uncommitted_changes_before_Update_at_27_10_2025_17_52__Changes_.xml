@@ -1,0 +1,89 @@
+<changelist name="Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]" date="1761587575989" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 27/10/2025 17:52 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Plantas/Cacto.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Plantas/Cacto.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/Cacto.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Plantas/Exotica.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Plantas/Exotica.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/Exotica.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/.ninja_deps" />
+    <option name="AFTER_PATH" value="cmake-build-debug/.ninja_deps" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/.ninja_deps" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/FerramentaZ.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/FerramentaZ.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/FerramentaZ.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Jardineiro.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Jardineiro.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/Jardineiro.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/PacoteAdubo.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/PacoteAdubo.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/PacoteAdubo.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/TesouraPoda.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/TesouraPoda.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/TesouraPoda.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Regador.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Regador.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/Regador.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/main.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/main.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/main.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Comandos.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Comandos.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/Comandos.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/TP.exe" />
+    <option name="AFTER_PATH" value="cmake-build-debug/TP.exe" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/TP.exe" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/Ferramenta.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Plantas/Planta.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Plantas/Planta.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/Planta.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Posicao.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Posicao.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/Posicao.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Plantas/ErvaDaninha.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Plantas/ErvaDaninha.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/ErvaDaninha.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Jardim.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Jardim.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/Jardim.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2025_17_52_[Changes]/Roseira.cpp.obj" />
+  </binary>
+</changelist>
