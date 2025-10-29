@@ -29,7 +29,7 @@ bool Comando::executa() {
     std::cout << "-sai               -larea        -larga                    -apaga <nome>\n";
     std::cout << "                   -lsolo        -pega <n>                 -executa <nome-do-ficheiro>\n";
     std::cout << "                   -lferr        -compra <n>               -fim\n";
-    std::cout << "=============================================================================h==========\n";
+    std::cout << "=========================================================================================\n";
     input = obtemInput("Comando:");
 
     std::istringstream iss(input);
