@@ -10,6 +10,8 @@
 
 class Roseira : public Planta{
 public:
+    void cresce() override;
+    void mostrarInfoPlanta() const override;
 };
 
 

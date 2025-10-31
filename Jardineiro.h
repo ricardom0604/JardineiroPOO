@@ -8,7 +8,15 @@
 
 
 class Jardineiro {
+public:
+    Jardineiro();
 
+
+    void colher();
+    void podar();
+    void regar();
+    void fertilizar();
+    void usarFerramenta(char tipo);
 };
 
 

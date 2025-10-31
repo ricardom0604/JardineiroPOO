@@ -4,11 +4,14 @@
 
 #ifndef CACTO_H
 #define CACTO_H
+#include "Planta.h"
 
 
+class Cacto : public Planta{
+public:
 
-class Cacto {
-
+    void cresce() override;
+    void mostrarInfoPlanta() const override;
 };
 
 

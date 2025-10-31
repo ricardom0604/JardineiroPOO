@@ -19,6 +19,12 @@ public:
     Jardim();
     ~Jardim();
     void mostra();
+
+
+    void plantar(int l, int c, char tipo);
+    void removerPlanta(int l, int c);
+    void moverJardineiro(char direcao);
+
 };
 
 

@@ -7,7 +7,11 @@
 
 
 
-class Ferramenta {
+class Ferramenta{
+public:
+    Ferramenta();
+    virtual void usar();
+    virtual void mostrarInfo();
 
 };
 

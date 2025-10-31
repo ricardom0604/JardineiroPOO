@@ -4,11 +4,13 @@
 
 #ifndef ERVADANINHA_H
 #define ERVADANINHA_H
+#include "Planta.h"
 
 
-
-class ErvaDaninha {
-
+class ErvaDaninha : public Planta {
+public:
+    void cresce() override;
+    void mostrarInfoPlanta() const override;
 };
 
 
