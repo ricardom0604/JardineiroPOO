@@ -38,4 +38,6 @@ add_executable(TP
         Settings.h
         Comando.cpp
         Comando.h
+        Simulador.cpp
+        Simulador.h
 )

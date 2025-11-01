@@ -2,16 +2,13 @@
 
 #include "Jardim.h"
 #include "Comando.h"
+#include "Simulador.h"
+
 
 int main()
 {
-    Jardim j;
-    Comando c;
-    j.mostra();
-    while (true) {
-        if (!c.executa())
-            break;
-    }
+    Simulador s;
+    s.roda();
 
     return 0;
 }

@@ -16,7 +16,7 @@ class Jardim {
     char **mapa;
 
 public:
-    Jardim();
+    Jardim(int l, int c);
     ~Jardim();
     void mostra();
 
@@ -26,7 +26,4 @@ public:
     void moverJardineiro(char direcao);
 
 };
-
-
-
-#endif //JARDIM_H
+#endif

@@ -1,7 +1,3 @@
-//
-// Created by bruni on 27/10/2025.
-//
-
 #ifndef COMANDO_H
 #define COMANDO_H
 
@@ -10,7 +6,7 @@
 
 class Comando {
 public:
-    Comando();
+    Comando(Jardim* &jardim);
     ~Comando();
     std::string obtemInput(std::string message);
     bool executa();
