@@ -4,5 +4,3 @@
 
 #include "Roseira.h"
 #include "iostream"
-
-using namespace std;

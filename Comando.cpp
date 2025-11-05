@@ -21,7 +21,7 @@ Comando::Comando(Jardim* &jardim) {
 
         if (comando != "jardim") {
             std::cout << "Comando invalido! Use o formato: jardim <linha> <coluna>\n\n";
-            continue;
+            continue;//volta while
         }
 
         if (iss.fail()) { // não conseguiu ler números
@@ -128,8 +128,8 @@ bool Comando::executa() {
     }else if (input == "pega") {
         int m;
         if (temInt(iss,m))
-            printf("m é %d",m);
-        std::cout << "\nPega Ferramenta:\n";
+            printf("Pega em %d",m);
+        std::cout << "\nComando Invalido\n";
 
     }else if (input == "compra") {
         std::cout << "\nCompra Ferramenta:\n";
@@ -138,11 +138,11 @@ bool Comando::executa() {
         char l, c;
         if (!temChar(iss,l) || !temChar(iss,c)) {
             std::cout << "\nSintaxe errada!\n";
-            return false;
+            return true;
         }
         if (!Posicao::eValido(l,c)) {
             std::cout << "\nSintaxe errada!\n";
-            return false;
+            return true;
         }
         std::cout << "\nEntra na posicao:\n";
 
@@ -163,12 +163,12 @@ bool Comando::executa() {
 
     }else if (input == "fim") {
         std::cout << "Fim do programa\n\nTrabalho Feito por:  Bruna Alves de Sousa   N 2022139713\n                     Ricardo Antonio Ribeiro Miguel   N 2022135245\n";
-        return false;
+        return false;//sai
 
     }else {
         std::cout << "\nComando Invalido! Use um da Lista de Comandos.\n";
     }
-    return true;//fim
+    return true;
 }
 
 bool Comando::temInt(std::istringstream &iss, int &i) {

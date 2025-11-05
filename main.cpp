@@ -1,7 +1,3 @@
-#include <iostream>
-
-#include "Jardim.h"
-#include "Comando.h"
 #include "Simulador.h"
 
 
