@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Comando::Comando(Jardim* &jardim) {
+Comando::Comando() {
     std::string input;
     bool valido = false;
     int l, c;
@@ -44,9 +44,10 @@ Comando::Comando(Jardim* &jardim) {
         valido = true;
     }
 
-    jardim = new Jardim(l,c);
+    jardim = new Jardim(l,c); //nv const
 }
 Comando::~Comando() {
+    delete jardim;
 }
 std::string Comando::obtemInput(std::string message) {
     std::string input;
@@ -65,17 +66,21 @@ bool Comando::executa() {
     std::cout << "-sai               -larea        -larga                    -apaga <nome>\n";
     std::cout << "                   -lsolo        -pega <n>                 -executa <nome-do-ficheiro>\n";
     std::cout << "                   -lferr        -compra <n>               -fim\n";
-    std::cout << "=========================================================================================\n";
+    std::cout << "=======================================================================================\n";
     input = obtemInput("Comando:");
 
     std::istringstream iss(input);
     iss >> input ;
 
     if (input == "avanca") {
-        std::cout << "\nAvanca\n";
+        int m;
+        if (temInt(iss,m))
+            printf("Avanca em %d instantes",m);
+        std::cout << "\nComando Invalido\n";
 
     }else if (input == "lplantas") {
         std::cout << "\nLista de Plantas:\n";
+        jardim->mostraPlantas();
 
     }else if (input == "lplanta") {
         std::cout << "\nPropriedades da planta:\n";
@@ -176,13 +181,12 @@ bool Comando::temInt(std::istringstream &iss, int &i) {
     if (!(iss >> input)) return false; // nada para ler
 
     // Cria um novo stream a partir da string lida
-    std::istringstream issNum(input);
+    std::istringstream issTemp(input);
     int temp;
-    char resto;
 
     // Verifica se consegue ler um int e se n h caracteres extras
-    if (issNum >> temp && !(issNum >> resto)) {
-        i = temp;
+    if (issTemp >> temp ) {
+        i = temp;   //ao passar para o temp sei q é int
         return true;
     }
 

@@ -1,13 +1,11 @@
 #include "Simulador.h"
 
 Simulador::Simulador() {
-    comando = new Comando(jardim);
-    jardim->mostra();
+    comando = new Comando();  //criar um novo comando q recebe um jardim
 }
 
 Simulador::~Simulador() {
     delete comando;
-    delete jardim;
 }
 
 void Simulador::roda() {

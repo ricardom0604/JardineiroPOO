@@ -28,20 +28,24 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="Acrescento do Simulador, em vez do Jardim e Comando no MAIN">
+    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="Posicao">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Comando.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Comando.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Comando.h" beforeDir="false" afterPath="$PROJECT_DIR$/Comando.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jardim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jardim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Roseira.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Roseira.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Posicao.h" beforeDir="false" afterPath="$PROJECT_DIR$/Posicao.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Settings.h" beforeDir="false" afterPath="$PROJECT_DIR$/Settings.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulador.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Simulador.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulador.h" beforeDir="false" afterPath="$PROJECT_DIR$/Simulador.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Comando.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Comando.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardim.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardim.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,33 +99,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;C/C++ File.main.cpp (1).executor&quot;: &quot;Run&quot;,
-    &quot;C/C++ File.main.cpp.executor&quot;: &quot;Run&quot;,
-    &quot;CMake Application.TP.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ricar/Desktop/poo_2526_m1_BrunaSousa_2022139713_RicardoMiguel_2022135245/TP&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "C/C++ File.main.cpp (1).executor": "Run",
+    "C/C++ File.main.cpp.executor": "Run",
+    "CMake Application.TP.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/ricar/Desktop/poo_2526_m1_BrunaSousa_2022139713_RicardoMiguel_2022135245/TP",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bruni\OneDrive\Ambiente de Trabalho\Faculdade\4ano\POO\POO TP\Comandos" />
@@ -133,6 +137,11 @@
   </component>
   <component name="RunManager" selected="CMake Application.TP">
     <configuration name="TP" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="POO TP" TARGET_NAME="TP" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="POO TP" RUN_TARGET_NAME="TP">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -185,7 +194,11 @@
       <workItem from="1762275896089" duration="707000" />
       <workItem from="1762293246033" duration="7090000" />
       <workItem from="1762336405922" duration="9354000" />
-      <workItem from="1762354031828" duration="9807000" />
+      <workItem from="1762354031828" duration="19750000" />
+      <workItem from="1762421179264" duration="3072000" />
+      <workItem from="1762427030642" duration="3705000" />
+      <workItem from="1762431018116" duration="158000" />
+      <workItem from="1762535404107" duration="1253000" />
     </task>
     <task id="LOCAL-00001" summary="commit inicial">
       <option name="closed" value="true" />
@@ -259,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762275945262</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Posicao">
+      <option name="closed" value="true" />
+      <created>1762378135066</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1762378135066</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +298,8 @@
     <MESSAGE value="comandos atualizados" />
     <MESSAGE value="comandos atualizados2" />
     <MESSAGE value="Acrescento do Simulador, em vez do Jardim e Comando no MAIN" />
-    <option name="LAST_COMMIT_MESSAGE" value="Acrescento do Simulador, em vez do Jardim e Comando no MAIN" />
+    <MESSAGE value="Posicao" />
+    <option name="LAST_COMMIT_MESSAGE" value="Posicao" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

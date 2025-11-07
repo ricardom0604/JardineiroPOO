@@ -5,9 +5,12 @@
 #include <sstream>
 #include <iostream>
 
+#include "Simulador.h"
+
 class Comando {
+    Jardim *jardim;
 public:
-    Comando(Jardim* &jardim);
+    Comando();
     ~Comando();
     std::string obtemInput(std::string message);
     bool executa();

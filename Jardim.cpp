@@ -6,19 +6,26 @@
 
 
 Jardim::Jardim(int l, int c) : l(l), c(c) {
-    mapa = new char*[l];
+    mapa = new char*[l];             //cria vetor de l ponteiro um para cada linha
     for (int i = 0; i < l; i++) {
-        mapa[i] = new char[c];
+        mapa[i] = new char[c];         //para cada linha cria um array de char,
         for (int j = 0; j < c; j++) {
             mapa[i][j] = ' ';
         }
     }
+
+    numPlantas = 0;
+    numFerramentas = 0;
+    plantas = new Planta*[numPlantas];
+    ferramentas = new Ferramenta*[numFerramentas];
 }
 
 Jardim::~Jardim() {
     for (int i = 0; i < l; i++)
         delete[] mapa[i];
     delete[] mapa;
+    delete []ferramentas;
+    delete []plantas;
 }
 
 void Jardim::mostra() {
@@ -42,3 +49,14 @@ void Jardim::mostra() {
         printf("---");
     printf("-\n");
 }
+
+void Jardim::mostraPlantas() const {
+    for (int i = 0; i < numPlantas; i++)
+        plantas[i]->mostrarInfoPlanta();
+}
+
+void Jardim::planta(int l, int c, char tipo){
+    return;
+}
+
+
