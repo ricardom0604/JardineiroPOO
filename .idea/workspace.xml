@@ -28,47 +28,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="Posicao">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Comando.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Comando.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jardim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Cacto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Cacto.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Cacto.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Cacto.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/ErvaDaninha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/ErvaDaninha.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/ErvaDaninha.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/ErvaDaninha.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Planta.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Planta.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Planta.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Planta.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Roseira.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Roseira.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Roseira.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Roseira.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulador.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Simulador.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulador.h" beforeDir="false" afterPath="$PROJECT_DIR$/Simulador.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Comando.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Comando.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/FerramentaZ.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/FerramentaZ.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/PacoteAdubo.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/PacoteAdubo.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Regador.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Regador.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/TesouraPoda.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/TesouraPoda.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardim.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardim.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardineiro.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardineiro.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Cacto.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Cacto.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/ErvaDaninha.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/ErvaDaninha.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Exotica.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Exotica.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Planta.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Planta.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Posicao.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Posicao.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-    </list>
+    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="Depois da defesa" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,11 +54,22 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Comando.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Jardim.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Plantas/Cacto.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plantas/Cacto.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Plantas/Cacto.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Plantas/ErvaDaninha.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plantas/ErvaDaninha.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plantas/Exotica.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Plantas/Planta.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Plantas/Planta.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plantas/Planta.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Plantas/Roseira.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Plantas/Roseira.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plantas/Roseira.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Simulador.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ricar/Documents/POO/TP/Simulador.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/main.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectApplicationVersion">
@@ -218,7 +189,7 @@
       <workItem from="1762535404107" duration="1253000" />
       <workItem from="1762536832158" duration="4488000" />
       <workItem from="1762685656991" duration="1046000" />
-      <workItem from="1764103189341" duration="1000" />
+      <workItem from="1764103189341" duration="473000" />
     </task>
     <task id="LOCAL-00001" summary="commit inicial">
       <option name="closed" value="true" />
@@ -300,7 +271,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762378135066</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Depois da defesa">
+      <option name="closed" value="true" />
+      <created>1764103478820</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764103478820</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +298,8 @@
     <MESSAGE value="comandos atualizados2" />
     <MESSAGE value="Acrescento do Simulador, em vez do Jardim e Comando no MAIN" />
     <MESSAGE value="Posicao" />
-    <option name="LAST_COMMIT_MESSAGE" value="Posicao" />
+    <MESSAGE value="Depois da defesa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Depois da defesa" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
