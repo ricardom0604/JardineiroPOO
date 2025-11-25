@@ -45,6 +45,7 @@ Comando::Comando() {
     }
 
     jardim = new Jardim(l,c); //nv const
+    jardim->mostra();
 }
 Comando::~Comando() {
     delete jardim;
@@ -66,7 +67,7 @@ bool Comando::executa() {
     std::cout << "-sai               -larea        -larga                    -apaga <nome>\n";
     std::cout << "                   -lsolo        -pega <n>                 -executa <nome-do-ficheiro>\n";
     std::cout << "                   -lferr        -compra <n>               -fim\n";
-    std::cout << "=======================================================================================\n";
+    std::cout << "======================================================================================\n";
     input = obtemInput("Comando:");
 
     std::istringstream iss(input);
@@ -74,18 +75,18 @@ bool Comando::executa() {
 
     if (input == "avanca") {
         int m;
-        if (temInt(iss,m))
+        if (temInt(iss,m))// caso nao seja passado nada no 'n' assume como 1
             printf("Avanca em %d instantes",m);
         std::cout << "\nComando Invalido\n";
 
-    }else if (input == "lplantas") {
+    }else if (input == "lplantas") {//lista TUDO acerca das plantas, e ate do solo onde elas estao
         std::cout << "\nLista de Plantas:\n";
         jardim->mostraPlantas();
 
-    }else if (input == "lplanta") {
+    }else if (input == "lplanta") { //lista as propriedades da planta q encontrar na posicao l c (lplanta dc)
         std::cout << "\nPropriedades da planta:\n";
 
-    }else if (input == "larea") {
+    }else if (input == "larea") {//lista as propriedades e consteudo de cada uma das posicoes q n estejam vazias
         std::cout << "\nPropriedade e Conteudo da area:\n";
 
     }else if (input == "lsolo") {
@@ -116,8 +117,8 @@ bool Comando::executa() {
         std::cout << "\nColhe planta:\n";
 
     }else if (input == "planta") {
-        char l, c;
-        if (!temChar(iss,l) || !temChar(iss,c)) {
+        char l, c, tipo;
+        if (!temChar(iss,l) || !temChar(iss,c) || !temChar(iss,tipo)) {
             std::cout << "\nSintaxe errada!\n";
             return true;
         }
@@ -126,6 +127,8 @@ bool Comando::executa() {
             return true;
         }
         std::cout << "\nColoca nova planta:\n";
+        jardim->planta(3, 4, 's');
+        jardim->mostra();
 
     }else if (input == "larga") {
         std::cout << "\nLarga Ferramenta:\n";

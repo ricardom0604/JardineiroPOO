@@ -1,5 +1,8 @@
 #include "Simulador.h"
 
+#include "Comando.h"
+
+
 Simulador::Simulador() {
     comando = new Comando();  //criar um novo comando q recebe um jardim
 }

@@ -56,7 +56,7 @@ void Jardim::mostraPlantas() const {
 }
 
 void Jardim::planta(int l, int c, char tipo){
-    return;
+    mapa[l][c] = tipo;
 }
 
 

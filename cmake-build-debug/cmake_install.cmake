@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/ricar/Desktop/poo_2526_m1_BrunaSousa_2022139713_RicardoMiguel_2022135245/TP
+# Install script for directory: C:/Users/ricar/Documents/POO/TP
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,7 +40,7 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/ricar/Desktop/poo_2526_m1_BrunaSousa_2022139713_RicardoMiguel_2022135245/TP/cmake-build-debug/install_local_manifest.txt"
+  file(WRITE "C:/Users/ricar/Documents/POO/TP/cmake-build-debug/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -56,6 +56,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/ricar/Desktop/poo_2526_m1_BrunaSousa_2022139713_RicardoMiguel_2022135245/TP/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/ricar/Documents/POO/TP/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

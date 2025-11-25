@@ -10,6 +10,7 @@
 class Cacto : public Planta{
 public:
 
+    void beleza() override;
     void cresce() override;
     void mostrarInfoPlanta() const override;
 };

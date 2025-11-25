@@ -4,6 +4,10 @@
 
 #include "Planta.h"
 
+void Planta::beleza(){
+    std::cout << "N" << std::endl;
+}
+
 //void Planta::mostrarInfoPlanta() const {
 //cout << "Planta " << tipo << " em (" << linha << "," << coluna << ") "
 //          << (viva ? "viva" : "morta")

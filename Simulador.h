@@ -1,8 +1,8 @@
-#ifndef POO_TP_SIMULADOR_H
-#define POO_TP_SIMULADOR_H
+#ifndef SIMULADOR_H
+#define SIMULADOR_H
 
-#include "Comando.h"
 
+class Comando;
 
 class Simulador {
     Comando* comando;

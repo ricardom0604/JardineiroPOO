@@ -3,3 +3,6 @@
 //
 
 #include "Cacto.h"
+void Cacto::beleza() {
+    std::cout << "Neutra" << std::endl;
+}

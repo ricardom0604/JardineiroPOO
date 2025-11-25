@@ -4,3 +4,6 @@
 
 #include "Roseira.h"
 #include "iostream"
+void Roseira::beleza() {
+    std::cout << "Bonita" << std::endl;
+}

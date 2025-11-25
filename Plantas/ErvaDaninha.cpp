@@ -3,3 +3,6 @@
 //
 
 #include "ErvaDaninha.h"
+void ErvaDaninha::beleza() {
+    std::cout << "Feia" << std::endl;
+}
