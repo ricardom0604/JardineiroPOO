@@ -33,8 +33,8 @@ add_executable(TP
         Jardineiro.cpp
         Jardineiro.h
         main.cpp
-        Posicao.cpp
-        Posicao.h
+        Solo.cpp
+        Solo.h
         Settings.h
         Comando.cpp
         Comando.h

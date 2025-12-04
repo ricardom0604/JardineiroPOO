@@ -3,3 +3,9 @@
 //
 
 #include "Regador.h"
+
+#include "Settings.h"
+
+class Ferramenta;
+
+Regador::Regador() :Ferramentas (Settings::Regador)

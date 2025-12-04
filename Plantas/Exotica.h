@@ -4,11 +4,16 @@
 
 #ifndef EXOTICA_H
 #define EXOTICA_H
+#include "Planta.h"
 
 
+class Exotica:public Planta {
+public:
+    Exotica();
 
-class Exotica {
-
+    void beleza() override;
+    void cresce() override;
+    void mostrarInfoPlanta() const override;
 };
 
 

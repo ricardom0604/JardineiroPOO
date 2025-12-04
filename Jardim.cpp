@@ -3,14 +3,16 @@
 
 
 #include "Jardineiro.h"
+#include "Roseira.h"
+#include "Solo.h"
 
 
 Jardim::Jardim(int l, int c) : l(l), c(c) {
-    mapa = new char*[l];             //cria vetor de l ponteiro um para cada linha
+    mapa = new Solo*[l];             //cria vetor de l ponteiro um para cada linha
     for (int i = 0; i < l; i++) {
-        mapa[i] = new char[c];         //para cada linha cria um array de char,
+        mapa[i] = new Solo[c];         //para cada linha cria um array de char,
         for (int j = 0; j < c; j++) {
-            mapa[i][j] = ' ';
+            mapa[i][j].setPlanta(nullptr);
         }
     }
 
@@ -39,8 +41,10 @@ void Jardim::mostra() {
 
     for (int i = 0; i < l; i++) {
         printf("%c |", ('A' + i));
-        for (int j = 0; j < c; j++)
-            printf(" %c ", mapa[i][j]);
+        for (int j = 0; j < c; j++) {
+            char c = mapa[i][j].getPlanta()->getChar();
+            printf(" %c ", c);
+        }
         printf("|\n");
     }
 
@@ -55,8 +59,19 @@ void Jardim::mostraPlantas() const {
         plantas[i]->mostrarInfoPlanta();
 }
 
-void Jardim::planta(int l, int c, char tipo){
-    mapa[l][c] = tipo;
+void Jardim::planta(char l, char c, char tipo){
+    int linha = l - 'A';
+    int coluna = c - 'A';
+
+    Planta *p;
+    switch (tipo) {
+        case 'r':
+            p = new Roseira();
+        default:
+            p = new Planta();
+    }
+
+    mapa[linha][coluna].setPlanta(p);
 }
 
 

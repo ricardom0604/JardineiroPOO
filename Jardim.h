@@ -14,10 +14,12 @@
 #include "Ferramentas/Ferramenta.h"
 #include "Plantas/Planta.h"
 
+class Solo;
+
 class Jardim {
     int l, c;
-    char **mapa;
-         //solo** mapa
+    Solo **mapa;
+
 
     int numPlantas;
     int numFerramentas;
@@ -30,7 +32,7 @@ public:
 
 
     void mostraPlantas() const;
-    void planta(int l, int c, char tipo);
+    void planta(char l, char c, char tipo);
     void removerPlanta(int l, int c);
     void moverJardineiro(char direcao);
 

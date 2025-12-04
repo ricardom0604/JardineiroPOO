@@ -8,6 +8,8 @@
 
 
 class Cacto : public Planta{
+    int contaInstantesAgua = 0;
+    int contaInstantesNutrientes = 0;
 public:
 
     void beleza() override;

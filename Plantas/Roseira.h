@@ -5,11 +5,15 @@
 #ifndef ROSEIRA_H
 #define ROSEIRA_H
 
+#include "Settings.h"
 #include "../Plantas/Planta.h"
 
 
 class Roseira : public Planta{
 public:
+
+    Roseira();
+
     void beleza() override;
     void cresce() override;
     void mostrarInfoPlanta() const override;

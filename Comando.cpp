@@ -1,6 +1,6 @@
 #include "Comando.h"
 
-#include "Posicao.h"
+#include "Solo.h"
 
 
 using namespace std;
@@ -95,7 +95,7 @@ bool Comando::executa() {
             std::cout << "\nSintaxe errada!\n";
             return true;
         }
-        if (!Posicao::eValido(l,c)){
+        if (!Solo::eValido(l,c)){
             std::cout << "\nSintaxe errada!\n";
             return true;
         }
@@ -110,7 +110,7 @@ bool Comando::executa() {
             std::cout << "\nSintaxe errada!\n";
             return true;
         }
-        if (!Posicao::eValido(l,c)){
+        if (!Solo::eValido(l,c)){
             std::cout << "\nSintaxe errada!\n";
         return true;
         }
@@ -122,12 +122,12 @@ bool Comando::executa() {
             std::cout << "\nSintaxe errada!\n";
             return true;
         }
-        if (!Posicao::eValido(l,c)){
+        if (!Solo::eValido(l,c)){
             std::cout << "\nSintaxe errada!\n";
             return true;
         }
         std::cout << "\nColoca nova planta:\n";
-        jardim->planta(3, 4, 's');
+        jardim->planta(l, c, 's');
         jardim->mostra();
 
     }else if (input == "larga") {
@@ -148,7 +148,7 @@ bool Comando::executa() {
             std::cout << "\nSintaxe errada!\n";
             return true;
         }
-        if (!Posicao::eValido(l,c)) {
+        if (!Solo::eValido(l,c)) {
             std::cout << "\nSintaxe errada!\n";
             return true;
         }

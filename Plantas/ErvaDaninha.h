@@ -9,6 +9,8 @@
 
 class ErvaDaninha : public Planta {
 public:
+    ErvaDaninha();
+
     void beleza() override;
     void cresce() override;
     void mostrarInfoPlanta() const override;

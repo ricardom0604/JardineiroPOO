@@ -7,20 +7,29 @@
 
 #include <iostream>
 
-class Planta {
+using namespace std;
 
-    int agua, nutrientes;
+class Planta {
+    char character;
+    float agua, nutrientes;
+    string tipoBeleza;;  //feias, bonitas ou neutras
 public:
 
+    Planta(float agua, int nutrientes, string beleza, char character);
 
-    Planta(agua, nutrientes);
+    //===GETTERS===
     int getAgua();
     int getNutri();
-    int getBelz();
+    string getBeleza();
+    char getChar();
+
+    //===SETTERS===
+    void setAgua(int a);
+    void setNutri(int n);
+    void setBeleza(string b);
+    void setChar(char c);
 
 
-    //void mostrarInfoPlanta() const;
-    virtual void beleza();
     virtual void cresce();
     virtual void mostrarInfoPlanta() const;
 };
