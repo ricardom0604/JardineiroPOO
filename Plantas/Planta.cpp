@@ -9,45 +9,24 @@ Planta::Planta(float agua, int nutrientes, string beleza, char character):agua(a
 }
 
 //===GETTERS===
+int Planta::getAgua() {return agua;}
 
-int Planta::getAgua() {
-    return agua;
-}
+int Planta::getNutri() {return nutrientes;}
 
-int Planta::getNutri() {
-    return nutrientes;
-}
+string Planta::getBeleza() {return tipoBeleza;}
 
-string Planta::getBeleza() {
-    return tipoBeleza;
-}
-
-char Planta::getChar() {
-    return character;
-}
+char Planta::getChar() {return character;}
 
 //===SETTERS===
+void Planta::setAgua(int a) {agua = a;}
 
-void Planta::setAgua(int a) {
-    agua = a;
-}
+void Planta::setNutri(int n) {nutrientes = n;}
 
-void Planta::setNutri(int n) {
-    nutrientes = n;
-}
+void Planta::setBeleza(string b) {tipoBeleza = b;}
 
-void Planta::setBeleza(string b) {
-    tipoBeleza = b;
-}
+void Planta::setChar(char c) {character = c;}
 
-void Planta::setChar(char c) {
-    character = c;
-}
-
-
-void Planta::cresce() {
-
-}
+void Planta::cresce() {}
 
 void Planta::mostrarInfoPlanta() const {
     std::cout << "Planta: " << character << "\n"

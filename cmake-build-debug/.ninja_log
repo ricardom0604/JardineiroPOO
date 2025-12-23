@@ -1,5 +1,5 @@
 # ninja log v6
-44	958	7859486441359109	build.ninja	5688fe2248beed43
+44	958	7871755774058773	build.ninja	5688fe2248beed43
 35	144	7858561185111297	CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj	c09b3279493de061
 133	278	7858561186088756	CMakeFiles/TP.dir/Posicao.cpp.obj	f49409dcaf89b754
 42	155	7858561185172187	CMakeFiles/TP.dir/Ferramentas/FerramentaZ.cpp.obj	5294cab4f35b61b9
@@ -18,3 +18,6 @@
 49	505	7858608059515546	CMakeFiles/TP.dir/Comando.cpp.obj	c5af82f30cae0939
 54	452	7858608059575559	CMakeFiles/TP.dir/Simulador.cpp.obj	69ebd41d88c1855d
 12	85	7858607562759614	CMakeFiles/TP.dir/Solo.cpp.obj	eaff4504b5b3be68
+85	852	7872854303849248	CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj	c09b3279493de061
+159	861	7872854304578956	CMakeFiles/TP.dir/Simulador.cpp.obj	69ebd41d88c1855d
+150	892	7872854304488953	CMakeFiles/TP.dir/Comando.cpp.obj	c5af82f30cae0939

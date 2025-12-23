@@ -11,11 +11,11 @@ class Jardineiro {
 public:
     Jardineiro();
 
-
     void colher();
-    void podar();
+    void plantar();
     void regar();
     void fertilizar();
+    void podar();
     void usarFerramenta(char tipo);
 };
 

@@ -14,6 +14,7 @@
 #include "Ferramentas/Ferramenta.h"
 #include "Plantas/Planta.h"
 
+class Posicao;
 class Solo;
 
 class Jardim {
@@ -30,11 +31,19 @@ public:
     ~Jardim();
     void mostra();
 
+    //====GETTERS====
+    Solo & getSolo(Posicao posicao);
+
+    //====SETTERS====
+
+
 
     void mostraPlantas() const;
     void planta(char l, char c, char tipo);
     void removerPlanta(int l, int c);
     void moverJardineiro(char direcao);
+
+    bool encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) const;
 
 };
 #endif

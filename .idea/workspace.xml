@@ -29,9 +29,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="Depois da defesa">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Posicao.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Posicao.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ferramentas/Ferramenta.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/Ferramenta.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ferramentas/Ferramenta.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/Ferramenta.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jardim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jardim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jardineiro.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Jardineiro.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jardineiro.h" beforeDir="false" afterPath="$PROJECT_DIR$/Jardineiro.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Cacto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Cacto.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Cacto.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Cacto.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/ErvaDaninha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/ErvaDaninha.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/ErvaDaninha.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/ErvaDaninha.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Planta.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Planta.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Planta.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Planta.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Roseira.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Roseira.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Roseira.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Roseira.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Settings.h" beforeDir="false" afterPath="$PROJECT_DIR$/Settings.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Solo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Comando.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Comando.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +84,17 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Ferramentas/Ferramenta.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Jardim.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Jardineiro.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plantas/Cacto.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plantas/ErvaDaninha.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plantas/Exotica.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plantas/Planta.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plantas/Roseira.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Posicao.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Settings.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Solo.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/main.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectApplicationVersion">
@@ -306,9 +337,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="CMake Application.TP" />
-      <item itemvalue="C/C++ File.main.cpp (1)" />
       <item itemvalue="C/C++ File.main.cpp" />
+      <item itemvalue="C/C++ File.main.cpp (1)" />
+      <item itemvalue="CMake Application.TP" />
     </list>
     <recent_temporary>
       <list>
@@ -355,7 +386,14 @@
       <workItem from="1764256306554" duration="2221000" />
       <workItem from="1764848669194" duration="67000" />
       <workItem from="1765223545822" duration="928000" />
-      <workItem from="1765280200907" duration="3000" />
+      <workItem from="1765280200907" duration="1830000" />
+      <workItem from="1765398680899" duration="10610000" />
+      <workItem from="1765442226732" duration="6741000" />
+      <workItem from="1765467978458" duration="1472000" />
+      <workItem from="1765469767214" duration="3670000" />
+      <workItem from="1765578818093" duration="13202000" />
+      <workItem from="1765750660953" duration="3084000" />
+      <workItem from="1766447826413" duration="956000" />
     </task>
     <task id="LOCAL-00001" summary="commit inicial">
       <option name="closed" value="true" />
@@ -453,7 +491,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764848696810</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Depois da defesa">
+      <option name="closed" value="true" />
+      <created>1765280503630</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1765280503630</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

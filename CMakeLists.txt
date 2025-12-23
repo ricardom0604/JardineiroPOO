@@ -40,4 +40,6 @@ add_executable(TP
         Comando.h
         Simulador.cpp
         Simulador.h
+        Posicao.cpp
+        Posicao.h
 )

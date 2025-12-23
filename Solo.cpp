@@ -3,44 +3,54 @@
 //
 
 #include "Solo.h"
-
 #include <cctype>
 
-Solo::Solo() {
 
-}
-
-Solo::Solo(int l, int c) : l(l), c(c) {
-}
-Solo::Solo(char l, char c) {
-    this->l = l-'A';
-    this->c = c-'A';
-}
-Solo::~Solo() {
+//Construtor padrão
+Solo::Solo(): planta(nullptr) {
+    agua = 80 + rand() % 21;        // [80, 100]
+    nutrientes = 40 + rand() % 11;  // [40, 50]
 }
 
-
-int Solo::getL() {
-    return l;
-}
-void Solo::setL(int l) {
-    this->l=l;
-}
-int Solo::getC() {
-    return c;
-}
-void Solo::setC(int c) {
-    this->c=c;
+//Contrutor com a posição
+Solo::Solo(const Posicao& posicao) : p(posicao), planta(nullptr) {
+    agua = 80 + rand() % 21;
+    nutrientes = 40 + rand() % 11;
 }
 
-bool Solo::eValido(char l, char c) {
-    return std::tolower(l) >= 'a' && std::tolower(l) <= 'z' && std::tolower(c) >= 'a' && std::tolower(c) <= 'z';
+//Construtor de letras
+Solo::Solo(char l, char c) : planta(nullptr) {
+    p.setL(l - 'A');
+    p.setC(c - 'A');
+    agua = 80 + rand() % 21;
+    nutrientes = 40 + rand() % 11;
 }
 
-Planta* Solo::getPlanta() {
-    return planta;
+//Destrutor
+Solo::~Solo() { delete planta;}
+
+//====GETTERS====
+Planta* Solo::getPlanta() {return planta;}
+
+Posicao Solo::getposicao() {return p;}
+
+int Solo::getAgua() {return agua;}
+
+int Solo::getNutrientesSolo() {return nutrientes;}
+
+bool Solo::temPlanta() {return planta != nullptr;}
+
+//====SETTERS====
+bool Solo::setPlanta(Planta *novaPlanta) {  //Verifica se já está ocupada e retorna sucesso/falha
+   if(planta == nullptr) {
+       planta = novaPlanta;
+       return true;
+   }
+    return false;
 }
 
-void Solo::setPlanta(Planta *planta) {
-    planta = planta;
+Planta* Solo::removePlanta() {
+    Planta* temp = planta;
+    planta = nullptr;
+    return temp;
 }

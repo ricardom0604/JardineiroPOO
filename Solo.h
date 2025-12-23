@@ -2,34 +2,47 @@
 // Created by bruni on 24/10/2025.
 //
 
-#ifndef POSICAO_H
-#define POSICAO_H
-#define PLANTA_H
+#ifndef SOLO_H
+#define SOLO_H
+#include "Planta.h"
+#include "Posicao.h"
 
-
-class Planta;
+class Jardim;
 
 class Solo {
-    int l, c;
+    Posicao p;
     int agua;
     int nutrientes;
     Planta* planta;
 
+public:
+    Solo();
+    Solo(const Posicao& p);   //é para usar devido as posicoes dos arrays
+    Solo(char l, char c);
+    ~Solo();
 
-    public:
-        Solo();
-        Solo(int l, int c);   //é para usar devido as poicoes dos arrays
-        Solo(char l, char c);
-        ~Solo();
-    int getL();
-    void setL(int l);
-    int getC(); //se a var l e c é privada preciso de ter metodos
-    void setC(int c);
-    static bool eValido(char l, char c);  //posicao::eval n percence a um objeto mas sim a uma classe
+
+    void retiraNutrientes(int absorcao_nutrientes);
+    void adicionaAgua(float x);
+    void adicionaNutrientes(float x);
+    void retiraAgua(int absorcao_agua);
+
+
+    //====GETTERS=====
+    Posicao getposicao();
+    int getNutrientesSolo();
+    int getAgua();
     Planta *getPlanta();
-    void setPlanta(Planta* planta);
+
+    bool temPlanta();
+    bool temPlanta() const;
+
+    //====SETTERS====
+    bool setPlanta(Planta *novaPlanta);
+
+    Planta* removePlanta(); // Retorna o ponteiro removido
+    static bool eValido(char l, char c);  //posicao::eval n percence a um objeto mas sim a uma classe
+
 };
 
-
-
-#endif //POSICAO_H
+#endif

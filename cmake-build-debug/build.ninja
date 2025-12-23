@@ -161,6 +161,13 @@ build CMakeFiles/TP.dir/Simulador.cpp.obj: CXX_COMPILER__TP_unscanned_Debug C$:/
   OBJECT_DIR = CMakeFiles\TP.dir
   OBJECT_FILE_DIR = CMakeFiles\TP.dir
 
+build CMakeFiles/TP.dir/Posicao.cpp.obj: CXX_COMPILER__TP_unscanned_Debug C$:/Users/bruni/OneDrive/Ambiente$ de$ Trabalho/Faculdade/4ano/POO/JardineiroPOO/Posicao.cpp || cmake_object_order_depends_target_TP
+  DEP_FILE = CMakeFiles\TP.dir\Posicao.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/bruni/OneDrive/Ambiente de Trabalho/Faculdade/4ano/POO/JardineiroPOO/." -I"C:/Users/bruni/OneDrive/Ambiente de Trabalho/Faculdade/4ano/POO/JardineiroPOO/Ferramentas" -I"C:/Users/bruni/OneDrive/Ambiente de Trabalho/Faculdade/4ano/POO/JardineiroPOO/Plantas"
+  OBJECT_DIR = CMakeFiles\TP.dir
+  OBJECT_FILE_DIR = CMakeFiles\TP.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TP
@@ -169,7 +176,7 @@ build CMakeFiles/TP.dir/Simulador.cpp.obj: CXX_COMPILER__TP_unscanned_Debug C$:/
 #############################################
 # Link the executable TP.exe
 
-build TP.exe: CXX_EXECUTABLE_LINKER__TP_Debug CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj CMakeFiles/TP.dir/Ferramentas/FerramentaZ.cpp.obj CMakeFiles/TP.dir/Ferramentas/PacoteAdubo.cpp.obj CMakeFiles/TP.dir/Ferramentas/Regador.cpp.obj CMakeFiles/TP.dir/Ferramentas/TesouraPoda.cpp.obj CMakeFiles/TP.dir/Plantas/Cacto.cpp.obj CMakeFiles/TP.dir/Plantas/ErvaDaninha.cpp.obj CMakeFiles/TP.dir/Plantas/Exotica.cpp.obj CMakeFiles/TP.dir/Plantas/Planta.cpp.obj CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj CMakeFiles/TP.dir/Jardim.cpp.obj CMakeFiles/TP.dir/Jardineiro.cpp.obj CMakeFiles/TP.dir/main.cpp.obj CMakeFiles/TP.dir/Solo.cpp.obj CMakeFiles/TP.dir/Comando.cpp.obj CMakeFiles/TP.dir/Simulador.cpp.obj
+build TP.exe: CXX_EXECUTABLE_LINKER__TP_Debug CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj CMakeFiles/TP.dir/Ferramentas/FerramentaZ.cpp.obj CMakeFiles/TP.dir/Ferramentas/PacoteAdubo.cpp.obj CMakeFiles/TP.dir/Ferramentas/Regador.cpp.obj CMakeFiles/TP.dir/Ferramentas/TesouraPoda.cpp.obj CMakeFiles/TP.dir/Plantas/Cacto.cpp.obj CMakeFiles/TP.dir/Plantas/ErvaDaninha.cpp.obj CMakeFiles/TP.dir/Plantas/Exotica.cpp.obj CMakeFiles/TP.dir/Plantas/Planta.cpp.obj CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj CMakeFiles/TP.dir/Jardim.cpp.obj CMakeFiles/TP.dir/Jardineiro.cpp.obj CMakeFiles/TP.dir/main.cpp.obj CMakeFiles/TP.dir/Solo.cpp.obj CMakeFiles/TP.dir/Comando.cpp.obj CMakeFiles/TP.dir/Simulador.cpp.obj CMakeFiles/TP.dir/Posicao.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TP.dir
