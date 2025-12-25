@@ -9,6 +9,8 @@
 
 #include "Posicao.h"
 
+
+//apagar este comentario, era para o ricky fraky ter acesso
 class Jardim;
 using namespace std;
 
