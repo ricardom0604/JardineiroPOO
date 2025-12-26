@@ -7,8 +7,6 @@
 #include "Jardim.h"
 #include "Solo.h"
 
-class Jardim;
-class Solo;
 using namespace std;
 
 Roseira::Roseira() :Planta(Settings::Roseira::inicial_agua,Settings::Roseira::inicial_nutrientes, "bonita" ,'r') {

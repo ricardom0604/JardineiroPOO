@@ -1,62 +1,48 @@
-//
-// Created by bruni on 23/10/2025.
-//
-
 #ifndef PLANTA_H
 #define PLANTA_H
 
 #include <iostream>
-
+#include <string>
 #include "Posicao.h"
 
-
-//apagar este comentario, era para o ricky fraky ter acesso
 class Jardim;
-using namespace std;
-
 class Solo;
 
 class Planta {
-
-protected: //se meter no private,as classes filhas n podem modificar
+protected:
     char character;
-    float agua, nutrientes;
-    string tipoBeleza;;  //feias, bonitas ou neutras
+    float agua;
+    float nutrientes;
+    std::string tipoBeleza;
     int contadorInstantes;
 
 public:
-
-    Planta(float agua, int nutrientes, string beleza, char character);
-
+    Planta(float agua, int nutrientes, std::string beleza, char character);
     virtual ~Planta() = default;
 
-    virtual void cadaInstante(Solo& solo) = 0; //simula a passagem de um instante; recebe o solo para poder interagir com ele
-
-    virtual bool verificaMorte(const Solo& solo) const = 0;//verifica se as condições de morte da planta foram atingidas
-
-    virtual void acaoMorte(Solo& solo) = 0; //ação da planta quando morre
-
+    virtual void cadaInstante(Solo& solo) = 0;
+    virtual bool verificaMorte(const Solo& solo) const = 0;
+    virtual void acaoMorte(Solo& solo) = 0;
     virtual Planta* tentaMultiplicar(Jardim& jardim, const Posicao& minhaPosicao) = 0;
 
+    // estes dois existem na tua derivada, então mete-os também na base:
+    virtual void beleza() = 0;
+    virtual void cresce() = 0;
 
-    //===GETTERS===
+    // getters
     int getAgua();
     int getNutri();
-    string getBeleza();
+    std::string getBeleza();
     char getChar();
 
-    //===SETTERS===
     void setAgua(int a);
     void setNutri(int n);
-    void setBeleza(string b);
+    void setBeleza(std::string b);
     void setChar(char c);
 
-
-    //virtual void cresce();
     virtual void mostrarInfoPlanta() const;
 
-    bool eFeia() const{return tipoBeleza == "feia";}  //tesoura de poda elimina as plantas "feias"
+    bool eFeia() const { return tipoBeleza == "feia"; }
 };
 
-
-#endif //PLANTA_H
+#endif // PLANTA_H

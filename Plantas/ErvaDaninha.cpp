@@ -1,73 +1,73 @@
-//
-// Created by bruni on 23/10/2025.
-//
-
 #include "ErvaDaninha.h"
-
+#include "Jardim.h"
 #include "Settings.h"
 #include "Solo.h"
 
-using namespace std;
+#include <algorithm> // std::min
+#include <iostream>
 
-ErvaDaninha::ErvaDaninha() :Planta(Settings::ErvaDaninha::inicial_agua, Settings::ErvaDaninha::inicial_nutrientes, "feia",'e') {
+// Workaround (não usar diretamente Settings::... que dá undefined reference no MinGW)
+static const int ERVA_ABSORCAO_AGUA = 1;       // Settings::ErvaDaninha::absorcao_agua
+static const int ERVA_ABSORCAO_NUTR = 1;       // Settings::ErvaDaninha::absorcao_nutrientes
 
+ErvaDaninha::ErvaDaninha()
+    : Planta(Settings::ErvaDaninha::inicial_agua,
+             Settings::ErvaDaninha::inicial_nutrientes,
+             "feia",
+             'e'),
+      instantesDesdeUltimaMultiplicacao(0) {
 }
 
+void ErvaDaninha::beleza() {
+    std::cout << "Feia\n";
+}
 
-void ErvaDaninha::beleza() {std::cout << "Feia" << std::endl;}
+void ErvaDaninha::cresce() {
+}
 
-void ErvaDaninha::cresce() {}
-
-void ErvaDaninha::cadaInstante(Solo &solo) {
-    contadorInstantes ++;
+void ErvaDaninha::cadaInstante(Solo& solo) {
+    contadorInstantes++;
     instantesDesdeUltimaMultiplicacao++;
 
-    //Absorção de Água (1 unidade, se existir)
+    // Absorção de Água (1 unidade, se existir)
     int aguaSolo = solo.getAgua();
-    int absorcaoAgua = min(Settings::ErvaDaninha::absorcao_agua, aguaSolo);
-    if(absorcaoAgua < 0) {
+    int absorcaoAgua = std::min(ERVA_ABSORCAO_AGUA, aguaSolo);
+    if (absorcaoAgua > 0) {
         solo.retiraAgua(absorcaoAgua);
         agua += absorcaoAgua;
     }
 
-    //Absorção de Nutrientes (1 unidade, se existir)
+    // Absorção de Nutrientes (1 unidade, se existir)
     int nutrientesSolo = solo.getNutrientesSolo();
-    int absorcaoNutrientes = min(Settings::ErvaDaninha::absorcao_nutrientes, nutrientesSolo);
-    if(absorcaoNutrientes > 0) {
+    int absorcaoNutrientes = std::min(ERVA_ABSORCAO_NUTR, nutrientesSolo);
+    if (absorcaoNutrientes > 0) {
         solo.retiraNutrientes(absorcaoNutrientes);
-        nutrientesSolo += absorcaoNutrientes;
+        nutrientes += absorcaoNutrientes; // aqui era bug no teu: somavas ao "nutrientesSolo"
     }
 }
 
-bool ErvaDaninha::verificaMorte(const Solo &solo) const {
-    //morre sozinha passado 60 instantes
-    if(contadorInstantes >= Settings::ErvaDaninha::morre_instantes) {
-        return true;
-    }
-    return false;
+bool ErvaDaninha::verificaMorte(const Solo& /*solo*/) const {
+    // morre sozinha passado 60 instantes
+    return contadorInstantes >= Settings::ErvaDaninha::morre_instantes;
 }
 
-void ErvaDaninha::acaoMorte(Solo &solo) {}
+void ErvaDaninha::acaoMorte(Solo& /*solo*/) {
+}
 
-Planta* ErvaDaninha::tentaMultiplicar(Jardim& jardim, const Solo& minhaPosicao) {
-    // Nutrientes > 30 && passados 5 instantes desde a última multiplicação.
+Planta* ErvaDaninha::tentaMultiplicar(Jardim& jardim, const Posicao& minhaPosicao) {
     if (nutrientes > Settings::ErvaDaninha::multiplica_nutrientes_maior &&
         instantesDesdeUltimaMultiplicacao >= Settings::ErvaDaninha::multiplica_instantes) {
-        //Tenta encontrar vizinho
-        Solo vizinhaAlvo = jardim.encontraVizinho(minhaPosicao);
 
-        if (vizinhaAlvo.eValida()) {
-            // A nova planta fica com 5 de água e 5 de nutrientes (valores iniciais)
-            Planta* novaErva = new ErvaDaninha();
-
-            //Reset do contador
+        Posicao destino;
+        if (jardim.encontraVizinho(minhaPosicao, destino)) {
             instantesDesdeUltimaMultiplicacao = 0;
-
-            return novaErva;
+            return new ErvaDaninha();
         }
     }
     return nullptr;
 }
 
-
-void ErvaDaninha::mostrarInfoPlanta() const {}
+void ErvaDaninha::mostrarInfoPlanta() const {
+    Planta::mostrarInfoPlanta();
+    std::cout << "Tipo: ErvaDaninha\n";
+}

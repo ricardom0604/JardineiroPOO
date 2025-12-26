@@ -8,4 +8,4 @@
 
 class Ferramenta;
 
-Regador::Regador() :Ferramentas (Settings::Regador)
+//Regador::Regador() :Ferramentas (Settings::Regador)

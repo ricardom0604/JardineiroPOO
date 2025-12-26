@@ -1,13 +1,10 @@
 #include "Jardim.h"
 #include "Roseira.h"
 #include "Solo.h"
-#include "posicao.h"
+#include "Posicao.h"
+#include "Plantas/Planta.h"
+#include "Plantas/Roseira.h"
 
-bool Solo::eValido(char l, char c) {
-    return std::tolower(l) >= 'a' && std::tolower(l) <= 'a'  && std::tolower(c) >= 'a' && std::tolower(c) <= 'z';
-}
-
-//Construtor
 Jardim::Jardim(int l, int c) : l(l), c(c) {
     mapa = new Solo*[l];  //cria um vetor de l ponteiro um para cada linha
     for (int i = 0; i < l; i++) {
@@ -48,8 +45,9 @@ void Jardim::mostra() {
     for (int i = 0; i < l; i++) {
         printf("%c |", ('A' + i));
         for (int j = 0; j < c; j++) {
-            char c = mapa[i][j].getPlanta()->getChar();
-            printf(" %c ", c);
+            Planta* p = mapa[i][j].getPlanta();
+            char ch = (p ? p->getChar() : ' ');
+            printf(" %c ", ch);
         }
         printf("|\n");
     }
@@ -85,10 +83,9 @@ void Jardim::planta(char l, char c, char tipo){
             std::cout << "ERRO: Tipo de planta desconhecido.\n";
         return;
     }
-    if (p != nullptr) {
+    if (p != nullptr)
         mapa[linha][coluna].setPlanta(p);
-    }
-    mapa[linha][coluna].setPlanta(p);
+
 }
 
 

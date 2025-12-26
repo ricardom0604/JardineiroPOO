@@ -1,49 +1,35 @@
-//
-// Created by bruni on 24/10/2025.
-//
-
 #ifndef JARDIM_H
 #define JARDIM_H
 
-#include <sstream>
-#include <cstdio>
-#include "Settings.h"
-#include <string>
 #include <iostream>
 
-#include "Ferramentas/Ferramenta.h"
-#include "Plantas/Planta.h"
-
-class Posicao;
 class Solo;
+class Planta;
+class Ferramenta;
+class Posicao;
 
 class Jardim {
     int l, c;
-    Solo **mapa;
-
+    Solo** mapa;
 
     int numPlantas;
     int numFerramentas;
-    Planta **plantas;
-    Ferramenta **ferramentas;
+    Planta** plantas;
+    Ferramenta** ferramentas;
+
 public:
     Jardim(int l, int c);
     ~Jardim();
+
     void mostra();
-
-    //====GETTERS====
-    Solo & getSolo(Posicao posicao);
-
-    //====SETTERS====
-
-
-
     void mostraPlantas() const;
-    void planta(char l, char c, char tipo);
-    void removerPlanta(int l, int c);
-    void moverJardineiro(char direcao);
 
+    void planta(char l, char c, char tipo);
     bool encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) const;
 
+    // (recomendado para validação futura)
+    int getLinhas() const { return l; }
+    int getColunas() const { return c; }
 };
+
 #endif

@@ -6,6 +6,7 @@
 #define SOLO_H
 #include "Planta.h"
 #include "Posicao.h"
+#include <cmath>
 
 class Jardim;
 
@@ -22,10 +23,6 @@ public:
     ~Solo();
 
 
-    void retiraNutrientes(int absorcao_nutrientes);
-    void adicionaAgua(float x);
-    void adicionaNutrientes(float x);
-    void retiraAgua(int absorcao_agua);
 
 
     //====GETTERS=====
@@ -42,6 +39,11 @@ public:
 
     Planta* removePlanta(); // Retorna o ponteiro removido
     static bool eValido(char l, char c);  //posicao::eval n percence a um objeto mas sim a uma classe
+
+    void retiraNutrientes(int);
+    void adicionaAgua(float);
+    void adicionaNutrientes(float);
+    void retiraAgua(int);
 
 };
 

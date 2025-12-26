@@ -22,7 +22,7 @@ public:
     bool verificaMorte(const Solo& solo) const override;
     void acaoMorte(Solo& solo) override;
 
-    Planta *tentaMultiplicar(Jardim &jardim, const Solo &minhaPosicao);
+    Planta* tentaMultiplicar(Jardim& jardim, const Posicao& minhaPosicao) override;
 };
 
 

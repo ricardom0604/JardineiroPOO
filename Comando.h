@@ -8,14 +8,16 @@
 #include "Simulador.h"
 
 class Comando {
-    Jardim *jardim;
+    Jardim *jardim = nullptr;
+    bool jardimCriado = false;
+
+    void mostraAjuda() const;
 public:
     Comando();
     ~Comando();
+
     std::string obtemInput(std::string message);
     bool executa();
-    bool temInt(std::istringstream &iss,int &i);
-    bool temChar(std::istringstream &iss, char &c);
 };
 
 

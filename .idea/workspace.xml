@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="52" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
@@ -28,7 +29,55 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="TEMOS DE ACABAR ESTA MERDA" />
+    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="Depois da defesa">
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Comando.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Comando.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Comando.h" beforeDir="false" afterPath="$PROJECT_DIR$/Comando.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ferramentas/Regador.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/Regador.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jardim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jardim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Cacto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Cacto.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Cacto.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Cacto.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/ErvaDaninha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/ErvaDaninha.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/ErvaDaninha.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/ErvaDaninha.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Planta.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Planta.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Planta.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Planta.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Roseira.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Roseira.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Roseira.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Roseira.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Posicao.h" beforeDir="false" afterPath="$PROJECT_DIR$/Posicao.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulador.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Simulador.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulador.h" beforeDir="false" afterPath="$PROJECT_DIR$/Simulador.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Solo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Comando.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Comando.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Ferramenta.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/FerramentaZ.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/FerramentaZ.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/PacoteAdubo.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/PacoteAdubo.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Regador.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/Regador.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/TesouraPoda.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Ferramentas/TesouraPoda.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardim.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardim.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardineiro.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Jardineiro.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Cacto.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Cacto.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/ErvaDaninha.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/ErvaDaninha.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Exotica.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Exotica.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Planta.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Planta.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Plantas/Roseira.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Posicao.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/Posicao.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TP.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +99,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ricardom0604/JardineiroPOO.git&quot;,
-    &quot;accountId&quot;: &quot;33170bf7-aec3-4a0c-b093-538b12da70de&quot;
+    &quot;accountId&quot;: &quot;02058b6f-0c36-4bd5-afd4-8dfa6c4a86b6&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -124,6 +173,40 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.TP">
+    <configuration default="true" type="docs" factoryName="Docutils task">
+      <module name="JardineiroPOO" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Sphinx task">
+      <module name="JardineiroPOO" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="TP" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="POO TP" TARGET_NAME="TP" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="POO TP" RUN_TARGET_NAME="TP">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -173,40 +256,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="JardineiroPOO" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="JardineiroPOO" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Autodetect">
@@ -307,9 +356,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="CMake Application.TP" />
-      <item itemvalue="C/C++ File.main.cpp (1)" />
       <item itemvalue="C/C++ File.main.cpp" />
+      <item itemvalue="C/C++ File.main.cpp (1)" />
+      <item itemvalue="CMake Application.TP" />
     </list>
     <recent_temporary>
       <list>
@@ -365,6 +414,8 @@
       <workItem from="1765750660953" duration="3084000" />
       <workItem from="1766447826413" duration="1008000" />
       <workItem from="1766698333060" duration="3000" />
+      <workItem from="1766700005593" duration="8916000" />
+      <workItem from="1766776744376" duration="463000" />
     </task>
     <task id="LOCAL-00001" summary="commit inicial">
       <option name="closed" value="true" />

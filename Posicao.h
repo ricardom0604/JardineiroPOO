@@ -4,7 +4,6 @@
 
 #ifndef POSICAO_H
 #define POSICAO_H
-#include "Jardim.h"
 
 
 class Posicao {

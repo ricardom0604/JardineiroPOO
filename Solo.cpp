@@ -54,3 +54,35 @@ Planta* Solo::removePlanta() {
     planta = nullptr;
     return temp;
 }
+
+void Solo::retiraAgua(int x) {
+    if (x < 0) return;
+    agua -= x;
+    if (agua < 0) agua = 0;
+}
+
+// Adiciona água ao solo
+void Solo::adicionaAgua(float x) {
+    if (x <= 0) return;
+    agua += (int)std::round(x);
+}
+
+// Retira nutrientes
+void Solo::retiraNutrientes(int x) {
+    if (x < 0) return;
+    nutrientes -= x;
+    if (nutrientes < 0) nutrientes = 0;
+}
+
+// Adiciona nutrientes
+void Solo::adicionaNutrientes(float x) {
+    if (x <= 0) return;
+    nutrientes += (int)std::round(x);
+}
+
+bool Solo::eValido(char l, char c) {
+    l = (char)std::tolower((unsigned char)l);
+    c = (char)std::tolower((unsigned char)c);
+
+    return (l >= 'a' && l <= 'z' && c >= 'a' && c <= 'z');
+}
