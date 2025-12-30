@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+#include "Jardineiro.h"
+
 class Solo;
 class Planta;
 class Ferramenta;
@@ -11,15 +13,24 @@ class Posicao;
 class Jardim {
     int l, c;
     Solo** mapa;
+    Jardineiro* jardineiro;
 
     int numPlantas;
     int numFerramentas;
     Planta** plantas;
     Ferramenta** ferramentas;
 
+    // Métodos privados auxiliares para gestão interna
+    void colocarFerramentaAleatoria(); //
+
 public:
     Jardim(int l, int c);
     ~Jardim();
+
+    //====GETTERS==
+    int getLinhas() const { return l; }
+    int getColunas() const { return c; }
+    Jardineiro* getJardineiro() const;
 
     void mostra();
     void mostraPlantas() const;
@@ -27,9 +38,6 @@ public:
     void planta(char l, char c, char tipo);
     bool encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) const;
 
-    // (recomendado para validação futura)
-    int getLinhas() const { return l; }
-    int getColunas() const { return c; }
 };
 
 #endif

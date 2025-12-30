@@ -1,99 +1,172 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <cstdio>
+#include <cctype>
 #include "Jardim.h"
-#include "Roseira.h"
 #include "Solo.h"
 #include "Posicao.h"
+#include "Ferramenta.h"
 #include "Plantas/Planta.h"
 #include "Plantas/Roseira.h"
+#include "Regador.h"
+#include "PacoteAdubo.h"
+#include "TesouraPoda.h"
+#include "FerramentaZ.h"
 
 Jardim::Jardim(int l, int c) : l(l), c(c) {
-    mapa = new Solo*[l];  //cria um vetor de l ponteiro um para cada linha
+    srand(static_cast<unsigned int>(time(NULL)));
+
+    // Alocação do mapa de Solo
+    mapa = new Solo*[l];
     for (int i = 0; i < l; i++) {
-        mapa[i] = new Solo[c]; //para cada linha cria um array de char
+        mapa[i] = new Solo[c];
         for (int j = 0; j < c; j++) {
             mapa[i][j] = Solo(Posicao(i, j));
         }
     }
+
+    // Inicialização de contadores
     numPlantas = 0;
     numFerramentas = 0;
-    plantas = new Planta*[numPlantas];
-    ferramentas = new Ferramenta*[numFerramentas];
+
+    // Inicializar vetores dinâmicos auxiliares como vazios
+    plantas = nullptr;
+    ferramentas = nullptr;
+
+    // Colocar as 3 ferramentas iniciais conforme o enunciado
+    for(int i = 0; i < 3; i++) {
+        colocarFerramentaAleatoria();
+    }
 }
 
-//Destrutor
 Jardim::~Jardim() {
-    // Destruir as plantas
-    for (int i = 0; i < numPlantas; i++)
-        delete plantas[i];
-    // Destruir os arrays de Solo e Ferramentas
+    // Libertar a memória de cada célula do Solo
     for (int i = 0; i < l; i++) {
+        for (int j = 0; j < c; j++) {
+            // O Solo é dono da planta e da ferramenta
+            delete mapa[i][j].getPlanta();
+            delete mapa[i][j].getFerramenta();
+        }
         delete[] mapa[i];
     }
     delete[] mapa;
-    delete []ferramentas;
-    delete []plantas;
+
+    // Estes vetores devem ser geridos com cuidado se guardarem cópias de ponteiros
+    delete[] ferramentas;
+    delete[] plantas;
+}
+
+void Jardim::colocarFerramentaAleatoria() {
+    Ferramenta* f = nullptr;
+    int tipo = rand() % 4;
+
+    switch (tipo) {
+        case 0: f = new Regador(); break;
+        case 1: f = new PacoteAdubo(); break;
+        case 2: f = new TesouraPoda(); break;
+        case 3: f = new FerramentaZ(); break;
+    }
+
+    if (!f) return;
+
+    bool colocado = false;
+    int tentativas = 0;
+    // Tenta encontrar uma posição vazia (limite de tentativas para evitar loop infinito)
+    while (!colocado && tentativas < (l * c)) {
+        int linhaRand = rand() % l;
+        int colunaRand = rand() % c;
+
+        if (mapa[linhaRand][colunaRand].getFerramenta() == nullptr) {
+            mapa[linhaRand][colunaRand].setFerramenta(f);
+            colocado = true;
+        }
+        tentativas++;
+    }
+
+    if (!colocado) delete f; // Limpeza se não conseguir colocar
 }
 
 void Jardim::mostra() {
-    printf("   ");
-    for (int i = 0; i < c; i++)
-        printf(" %c ", ('A' + i));
-    printf("\n  ");
-    for (int i = 0; i < c; i++)
-        printf("---");
-    printf("--\n");
+    // Régua superior (Letras A B C...)
+    printf("    "); // 4 espaços para alinhar com a margem lateral "A |"
+    for (int j = 0; j < c; j++)
+        printf(" %c ", ('A' + j));
+    printf("\n");
 
+    // Moldura superior
+    printf("   +");
+    for (int j = 0; j < c; j++)
+        printf("---");
+    printf("+\n"); // O + fecha o canto superior direito
+
+    // Conteúdo do Jardim
     for (int i = 0; i < l; i++) {
-        printf("%c |", ('A' + i));
+        // Régua lateral esquerda
+        printf(" %c |", ('A' + i));
+
         for (int j = 0; j < c; j++) {
+            char visual = ' '; // Espaço por defeito
+
+            // Verificação de ocupação
             Planta* p = mapa[i][j].getPlanta();
-            char ch = (p ? p->getChar() : ' ');
-            printf(" %c ", ch);
+            Ferramenta* f = mapa[i][j].getFerramenta();
+
+            if (p != nullptr) {
+                visual = p->getChar(); // Mostra a planta
+            }
+            else if (f != nullptr) {
+                visual = f->getChar(); // Mostra a ferramenta se não houver planta
+            }
+
+            printf(" %c ", visual);
         }
+
+        // Moldura lateral direita
         printf("|\n");
     }
-
-    printf("  -");
-    for (int i = 0; i < c; i++)
+    // Moldura inferior
+    printf("   +");
+    for (int j = 0; j < c; j++)
         printf("---");
-    printf("-\n");
+    printf("+\n");
 }
 
-void Jardim::mostraPlantas() const {
-    for (int i = 0; i < numPlantas; i++)
-        plantas[i]->mostrarInfoPlanta();
-}
+void Jardim::planta(char lChar, char cChar, char tipo) {
+    // Converter para minúsculas para aceitar comandos 'A' ou 'a'
+    int linha = std::tolower(lChar) - 'a';
+    int coluna = std::tolower(cChar) - 'a';
 
-//Função de criar planta
-void Jardim::planta(char l, char c, char tipo){
-    int linha = l - 'A';
-    int coluna = c - 'A';
+    // Verificação de limites
+    if (linha < 0 || linha >= l || coluna < 0 || coluna >= c) {
+        std::cout << "ERRO: Coordenadas invalidas.\n";
+        return;
+    }
+
+    if (mapa[linha][coluna].temPlanta()) {
+        std::cout << "ERRO: Posicao ocupada por outra planta.\n";
+        return;
+    }
 
     Planta *p = nullptr;
-    if (mapa[linha][coluna].getPlanta() != nullptr) {
-        std::cout << "ERRO: Posicao já ocupada.\n";
-        return;
-    }
-    switch (tipo) {
-        case 'r':
-            p = new Roseira();
-        break;
-        // Adicionar outros tipos de plantas aqui (c, e, x)
-
+    switch (std::tolower(tipo)) {
+        case 'r': p = new Roseira(); break;
+        // Futuro: case 'c': case 'e': case 'x'
         default:
             std::cout << "ERRO: Tipo de planta desconhecido.\n";
-        return;
+            return;
     }
-    if (p != nullptr)
+
+    if (p != nullptr) {
         mapa[linha][coluna].setPlanta(p);
-
+        std::cout << "Planta colocada com sucesso em " << lChar << cChar << ".\n";
+    }
 }
-
 
 bool Jardim::encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) const {
     int linha = minhaPosicao.getL();
     int coluna = minhaPosicao.getC();
 
-    // deslocamentos para as 8 posições vizinhas
     int dL[8] = { -1, -1, -1,  0, 0, 1, 1, 1 };
     int dC[8] = { -1,  0,  1, -1, 1, -1, 0, 1 };
 
@@ -101,10 +174,7 @@ bool Jardim::encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) cons
         int novaL = linha + dL[i];
         int novaC = coluna + dC[i];
 
-        // verificar se está dentro dos limites do jardim
         if (novaL >= 0 && novaL < l && novaC >= 0 && novaC < c) {
-
-            // verificar se a posição está vazia
             if (!mapa[novaL][novaC].temPlanta()) {
                 destino.setL(novaL);
                 destino.setC(novaC);
@@ -112,5 +182,5 @@ bool Jardim::encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) cons
             }
         }
     }
-    return false;  //n foi encontrado nehum vizinho
+    return false;
 }

@@ -6,6 +6,8 @@
 #define FERRAMENTA_H
 #include <string>
 
+#include "Jardineiro.h"
+
 using namespace std;
 class Solo;
 
@@ -16,21 +18,21 @@ protected:
     char character;
     string nome;
 public:
-    Ferramenta(char c, const string &nome);
-    virtual ~Ferramenta() = default;
+    Ferramenta(const string &nome, char c);
+    virtual ~Ferramenta();
 
     //===GETTERS===
     int getnSerie() const;
-    char getCharacter() const;
+    char getChar() const;
     string getNome() const;
 
     //===SETTERS===
     void setnSerie(int nSerie);
-    void setCharacter(char c);
+    void setChar(char c);
     void setNome(string n);
 
-    virtual void usar(Solo &solo, int l, int c) = 0;
-
+    virtual void usar(Solo &solo, Jardineiro& jardineiro) = 0;
+    virtual bool estaGasta() const = 0;
     virtual void mostrarInfo() const;
 
 

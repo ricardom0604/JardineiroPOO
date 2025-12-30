@@ -8,6 +8,8 @@
 #include "Posicao.h"
 #include <cmath>
 
+#include "Ferramenta.h"
+
 class Jardim;
 
 class Solo {
@@ -15,6 +17,7 @@ class Solo {
     int agua;
     int nutrientes;
     Planta* planta;
+    Ferramenta* ferramenta; //atributo para guadar a ferramenta no chão
 
 public:
     Solo();
@@ -30,14 +33,18 @@ public:
     int getNutrientesSolo();
     int getAgua();
     Planta *getPlanta();
+    Ferramenta* getFerramenta();
 
-    bool temPlanta();
     bool temPlanta() const;
+    bool temFerramenta() const;
 
     //====SETTERS====
     bool setPlanta(Planta *novaPlanta);
+    void setFerramenta(Ferramenta *novaFerramenta);
 
     Planta* removePlanta(); // Retorna o ponteiro removido
+    Ferramenta* removeFerramenta();
+
     static bool eValido(char l, char c);  //posicao::eval n percence a um objeto mas sim a uma classe
 
     void retiraNutrientes(int);

@@ -1,16 +1,21 @@
-//
-// Created by bruni on 23/10/2025.
-//
-
 #ifndef REGADOR_H
 #define REGADOR_H
 
+#include "Ferramenta.h"
+#include "Jardineiro.h"
+#include "Settings.h"
 
+class Regador : public Ferramenta {
+    int aguaAtual;
 
-class Regador {
-    int Ferramentas;
+public:
+    Regador() : Ferramenta("Regador", 'g'), aguaAtual(Settings::Regador::capacidade) {}
+
+    void usar(Solo& solo, Jardineiro& jardineiro) override;
+
+    bool estaGasta() const override;
+
+    void mostrarInfo() const override;
 };
 
-
-
-#endif //REGADOR_H
+#endif

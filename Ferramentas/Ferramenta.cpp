@@ -3,22 +3,23 @@
 //
 
 #include "Ferramenta.h"
-
 #include <iostream>
 #include <string>
 
 using namespace std;
 int Ferramenta::contadorNS = 1;
 
-Ferramenta::Ferramenta(char c, const std::string &nomeFerramenta)
-        : character(c), nome(nomeFerramenta) {
+Ferramenta::Ferramenta(const std::string &nomeFerramenta, char c)
+        : nome(nomeFerramenta) , character(c) {
     nSerie = contadorNS++;  // atribui número de série único
 }
+
+Ferramenta:: ~Ferramenta(){}
 
 //===GETTERS===
 int Ferramenta::getnSerie()const {return nSerie;}
 
-char Ferramenta::getCharacter()const {return character;}
+char Ferramenta::getChar()const {return character;}
 
 string Ferramenta::getNome()const {return nome;}
 

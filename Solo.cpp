@@ -13,7 +13,7 @@ Solo::Solo(): planta(nullptr) {
 }
 
 //Contrutor com a posição
-Solo::Solo(const Posicao& posicao) : p(posicao), planta(nullptr) {
+Solo::Solo(const Posicao& posicao) : p(posicao), planta(nullptr), ferramenta(nullptr) {
     agua = 80 + rand() % 21;
     nutrientes = 40 + rand() % 11;
 }
@@ -32,13 +32,17 @@ Solo::~Solo() { delete planta;}
 //====GETTERS====
 Planta* Solo::getPlanta() {return planta;}
 
+Ferramenta* Solo::getFerramenta() { return ferramenta; }
+
 Posicao Solo::getposicao() {return p;}
 
 int Solo::getAgua() {return agua;}
 
 int Solo::getNutrientesSolo() {return nutrientes;}
 
-bool Solo::temPlanta() {return planta != nullptr;}
+bool Solo::temPlanta() const {return planta != nullptr;}
+
+bool Solo::temFerramenta() const { return ferramenta != nullptr; }
 
 //====SETTERS====
 bool Solo::setPlanta(Planta *novaPlanta) {  //Verifica se já está ocupada e retorna sucesso/falha
@@ -49,9 +53,19 @@ bool Solo::setPlanta(Planta *novaPlanta) {  //Verifica se já está ocupada e re
     return false;
 }
 
+void Solo::setFerramenta(Ferramenta *novaFerramenta) {
+    ferramenta = novaFerramenta;
+}
+
 Planta* Solo::removePlanta() {
     Planta* temp = planta;
     planta = nullptr;
+    return temp;
+}
+
+Ferramenta* Solo::removeFerramenta() {
+    Ferramenta* temp = ferramenta;
+    ferramenta = nullptr;
     return temp;
 }
 

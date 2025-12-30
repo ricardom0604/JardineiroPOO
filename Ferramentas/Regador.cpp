@@ -4,8 +4,17 @@
 
 #include "Regador.h"
 
+#include <iostream>
+
 #include "Settings.h"
 
 class Ferramenta;
 
-//Regador::Regador() :Ferramentas (Settings::Regador)
+void Regador::usar(Solo& solo, Jardineiro& jardineiro) {}
+
+bool Regador::estaGasta() const{ return aguaAtual <=0;}
+
+void Regador::mostrarInfo() const {
+    Ferramenta::mostrarInfo();
+    std::cout << "  Agua restante: " << aguaAtual << "\n";
+}
