@@ -315,7 +315,12 @@ bool Comando::executa() {
             std::cout << "Posição invalida. Use duas letras (a..z)\n";
             return true;
         }
-        std::cout << "Comando valido: entra " << l << c << "\n";
+        if (!jardim->entraJardineiro(l, c)) {
+            std::cout << "ERRO: posicao fora do jardim.\n";
+            return true;
+        }
+
+        jardim->mostra();
         return true;
     }
 

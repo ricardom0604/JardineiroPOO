@@ -27,10 +27,17 @@ public:
     Jardim(int l, int c);
     ~Jardim();
 
+    Solo& getSolo(int linha, int coluna);
+    const Solo& getSolo(int linha, int coluna) const;
+
     //====GETTERS==
     int getLinhas() const { return l; }
     int getColunas() const { return c; }
-    Jardineiro* getJardineiro() const;
+
+    bool temJardineiro() const { return jardineiro != nullptr; }
+    Jardineiro* getJardineiro() const { return jardineiro; }
+
+    bool entraJardineiro(char lChar, char cChar);
 
     void mostra();
     void mostraPlantas() const;

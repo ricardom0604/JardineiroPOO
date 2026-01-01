@@ -9,7 +9,7 @@
 
 class FerramentaZ : public Ferramenta {
 public:
-    FerramentaZ() : Ferramenta("Ferramenta Z", 'z') {}
+    FerramentaZ();
 
     // Apenas a declaração terminada em ;
     void usar(Solo& solo, Jardineiro& jardineiro) override;

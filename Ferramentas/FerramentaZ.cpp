@@ -1,22 +1,23 @@
-//
-// Created by bruni on 23/10/2025.
-//
-
 #include "FerramentaZ.h"
 #include "Solo.h"
-#include "Jardineiro.h"
 #include <iostream>
 
+static const int Z_USOS = 3; // podes ajustar
 
-void FerramentaZ::usar(Solo& solo, Jardineiro& jardineiro) {
-    std::cout << "Usou a Ferramenta Z!" << std::endl;
+FerramentaZ::FerramentaZ() : Ferramenta("Ferramenta Z (Drenador)", 'z') {}
+
+void FerramentaZ::usar(Solo& solo, Jardineiro& /*jardineiro*/) {
+    int aguaAtual = solo.getAgua();
+    solo.retiraAgua(aguaAtual);
+    std::cout << "[DrenadorZ] Removeu " << aguaAtual << " de agua do solo.\n";
 }
 
-//para saber se a ferramenta deve ser destruída
-bool FerramentaZ::estaGasta() const {return false;}// Define se ela desaparece ou é permanente
-
+bool FerramentaZ::estaGasta() const {
+    // para já não está a gastar (se quiseres “gastar”, diz-me e eu adiciono contador)
+    return false;
+}
 
 void FerramentaZ::mostrarInfo() const {
     Ferramenta::mostrarInfo();
-    std::cout << "  Propriedades: Especial Z" << std::endl;
+    std::cout << "Tipo: Drenador (remove toda a agua do solo)\n";
 }

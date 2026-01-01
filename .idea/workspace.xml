@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="52" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
@@ -28,26 +29,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="ve o comentario na linha 13 do planta.h">
+    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/Ferramenta.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/Ferramenta.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/Ferramenta.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/Ferramenta.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Comando.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Comando.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ferramentas/FerramentaZ.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/FerramentaZ.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ferramentas/FerramentaZ.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/FerramentaZ.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/PacoteAdubo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/PacoteAdubo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/PacoteAdubo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/PacoteAdubo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/Regador.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/Regador.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/Regador.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/Regador.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/TesouraPoda.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/TesouraPoda.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/TesouraPoda.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/TesouraPoda.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jardim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jardim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jardineiro.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Jardineiro.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jardineiro.h" beforeDir="false" afterPath="$PROJECT_DIR$/Jardineiro.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Solo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Solo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Solo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Exotica.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Exotica.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plantas/Exotica.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Exotica.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
@@ -96,7 +88,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ricardom0604/JardineiroPOO.git&quot;,
-    &quot;accountId&quot;: &quot;33170bf7-aec3-4a0c-b093-538b12da70de&quot;
+    &quot;accountId&quot;: &quot;02058b6f-0c36-4bd5-afd4-8dfa6c4a86b6&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -150,7 +142,7 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bruni/OneDrive/Ambiente de Trabalho/Faculdade/4ano/POO/JardineiroPOO&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ricar/Documents/POO/TP/Comando.cpp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -170,6 +162,40 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.TP">
+    <configuration default="true" type="docs" factoryName="Docutils task">
+      <module name="JardineiroPOO" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Sphinx task">
+      <module name="JardineiroPOO" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="TP" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="POO TP" TARGET_NAME="TP" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="POO TP" RUN_TARGET_NAME="TP">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -219,40 +245,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="JardineiroPOO" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="JardineiroPOO" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Autodetect">
@@ -411,10 +403,9 @@
       <workItem from="1765750660953" duration="3084000" />
       <workItem from="1766447826413" duration="1008000" />
       <workItem from="1766698333060" duration="3000" />
-      <workItem from="1766942715938" duration="49000" />
-      <workItem from="1766942826456" duration="48000" />
-      <workItem from="1767090119270" duration="4502000" />
-      <workItem from="1767107324062" duration="10565000" />
+      <workItem from="1766700005593" duration="8916000" />
+      <workItem from="1766776744376" duration="463000" />
+      <workItem from="1767139372699" duration="8991000" />
     </task>
     <task id="LOCAL-00001" summary="commit inicial">
       <option name="closed" value="true" />

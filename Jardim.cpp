@@ -9,6 +9,7 @@
 #include "Ferramenta.h"
 #include "Plantas/Planta.h"
 #include "Plantas/Roseira.h"
+#include "Plantas/Exotica.h"
 #include "Regador.h"
 #include "PacoteAdubo.h"
 #include "TesouraPoda.h"
@@ -33,6 +34,7 @@ Jardim::Jardim(int l, int c) : l(l), c(c) {
     // Inicializar vetores dinâmicos auxiliares como vazios
     plantas = nullptr;
     ferramentas = nullptr;
+    jardineiro = nullptr;
 
     // Colocar as 3 ferramentas iniciais conforme o enunciado
     for(int i = 0; i < 3; i++) {
@@ -55,6 +57,8 @@ Jardim::~Jardim() {
     // Estes vetores devem ser geridos com cuidado se guardarem cópias de ponteiros
     delete[] ferramentas;
     delete[] plantas;
+    delete jardineiro;
+
 }
 
 void Jardim::colocarFerramentaAleatoria() {
@@ -87,6 +91,22 @@ void Jardim::colocarFerramentaAleatoria() {
     if (!colocado) delete f; // Limpeza se não conseguir colocar
 }
 
+bool Jardim::entraJardineiro(char lChar, char cChar) {
+    int linha  = std::tolower((unsigned char)lChar) - 'a';
+    int coluna = std::tolower((unsigned char)cChar) - 'a';
+
+    if (linha < 0 || linha >= l || coluna < 0 || coluna >= c)
+        return false;
+
+    if (!jardineiro)
+        jardineiro = new Jardineiro(linha, coluna);
+    else
+        jardineiro->setPosicao(linha, coluna);
+
+    return true;
+}
+
+
 void Jardim::mostra() {
     // Régua superior (Letras A B C...)
     printf("    "); // 4 espaços para alinhar com a margem lateral "A |"
@@ -106,6 +126,13 @@ void Jardim::mostra() {
         printf(" %c |", ('A' + i));
 
         for (int j = 0; j < c; j++) {
+            if (jardineiro != nullptr) {
+                Posicao pj = jardineiro->getPosicao();
+                if (pj.getL() == i && pj.getC() == j) {
+                    printf(" J ");
+                    continue;   // salta plantas/ferramentas
+                }
+            }
             char visual = ' '; // Espaço por defeito
 
             // Verificação de ocupação
@@ -150,6 +177,7 @@ void Jardim::planta(char lChar, char cChar, char tipo) {
 
     Planta *p = nullptr;
     switch (std::tolower(tipo)) {
+        case 'x': p = new Exotica(); break;
         case 'r': p = new Roseira(); break;
         // Futuro: case 'c': case 'e': case 'x'
         default:
@@ -183,4 +211,12 @@ bool Jardim::encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) cons
         }
     }
     return false;
+}
+
+Solo& Jardim::getSolo(int linha, int coluna) {
+    return mapa[linha][coluna];
+}
+
+const Solo& Jardim::getSolo(int linha, int coluna) const {
+    return mapa[linha][coluna];
 }
