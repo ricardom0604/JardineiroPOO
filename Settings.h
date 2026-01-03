@@ -67,7 +67,6 @@ class Settings {
         static const int nova_nutrientes = 5;
         static const int original_nutrientes = 5;
     };
-
 };
 
 #endif //SETTINGS_SETTINGS_H

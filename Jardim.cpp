@@ -13,6 +13,7 @@
 #include "Plantas/Cacto.h"
 #include "Plantas/ErvaDaninha.h"
 #include "Regador.h"
+#include "Settings.h"
 #include "PacoteAdubo.h"
 #include "TesouraPoda.h"
 #include "FerramentaZ.h"
@@ -129,6 +130,35 @@ bool Jardim::entraJardineiro(char lChar, char cChar) {
     return true;
 }
 
+void Jardim::resetTurno() {
+    movimentosNoTurno = 0;
+    colheitasNoTurno = 0;
+    plantacoesNoTurno = 0;
+}
+
+bool Jardim::podeMover() const {
+    return movimentosNoTurno < Settings::Jardineiro::max_movimentos;
+}
+
+void Jardim::registaMovimento() {
+    movimentosNoTurno++;
+}
+
+bool Jardim::podeColher() const {
+    return colheitasNoTurno < Settings::Jardineiro::max_colheitas;
+}
+
+void Jardim::registaColheita() {
+    colheitasNoTurno++;
+}
+
+bool Jardim::podePlantar() const {
+    return plantacoesNoTurno < Settings::Jardineiro::max_plantacoes;
+}
+
+void Jardim::registaPlantacao() {
+    plantacoesNoTurno++;
+}
 
 void Jardim::mostra() {
     // Régua superior (Letras A B C...)
@@ -193,6 +223,11 @@ void Jardim::planta(char lChar, char cChar, char tipo) {
     // Converter para minúsculas para aceitar comandos 'A' ou 'a'
     int linha = std::tolower(lChar) - 'a';
     int coluna = std::tolower(cChar) - 'a';
+    if (!podePlantar()) {
+        std::cout << "ERRO: Ja plantaste " << Settings::Jardineiro::max_plantacoes
+                  << " plantas neste turno. Usa: avanca\n";
+        return;
+    }
 
     // Verificação de limites
     if (linha < 0 || linha >= l || coluna < 0 || coluna >= c) {
@@ -218,6 +253,7 @@ void Jardim::planta(char lChar, char cChar, char tipo) {
 
     if (p != nullptr) {
         mapa[linha][coluna].setPlanta(p);
+        registaPlantacao();
         std::cout << "Planta colocada com sucesso em " << lChar << cChar << ".\n";
     }
 }
@@ -316,6 +352,7 @@ void Jardim::avanca(int n) {
     if (n <= 0) return;
 
     for (int passo = 0; passo < n; passo++) {
+        resetTurno();
         struct Nascimento {
             int l, c;
             Planta* p;
@@ -407,6 +444,11 @@ void Jardim::avanca(int n) {
 bool Jardim::colhe(char lChar, char cChar) {
     int linha  = std::tolower((unsigned char)lChar) - 'a';
     int coluna = std::tolower((unsigned char)cChar) - 'a';
+    if (!podeColher()) {
+        std::cout << "ERRO: Ja colheste " << Settings::Jardineiro::max_colheitas
+                  << " plantas neste turno. Usa: avanca\n";
+        return false;
+    }
 
     if (linha < 0 || linha >= l || coluna < 0 || coluna >= c) {
         std::cout << "ERRO: Coordenadas fora do jardim.\n";
@@ -422,6 +464,8 @@ bool Jardim::colhe(char lChar, char cChar) {
 
     Planta* p = s.removePlanta();   // tira do solo
     delete p;                       // apaga a planta (colhida)
+
+    registaColheita();
 
     std::cout << "Planta colhida em " << (char)std::toupper(lChar)
               << (char)std::toupper(cChar) << ".\n";
@@ -485,12 +529,30 @@ void Jardim::listaPlantas() const {
 }
 
 void Jardim::listaArea() const {
+    bool encontrou = false;
+
     for (int i = 0; i < l; i++) {
         for (int j = 0; j < c; j++) {
             const Solo& s = mapa[i][j];
+
+            if (!s.temPlanta() && !s.temFerramenta())
+                continue;
+
+            encontrou = true;
+
             std::cout << "=== [" << (char)('A' + i) << (char)('A' + j) << "] ===\n";
+
+            // Se quiseres aproveitar o teu mostraSolo() (que já lista tudo)
+            // podes só chamar isto:
             s.mostraSolo();
+
+            // Se preferires mostrar só o que existe, em vez de "nenhuma",
+            // diz-me e eu mando a versão "mais limpa".
             std::cout << "\n";
         }
+    }
+
+    if (!encontrou) {
+        std::cout << "Nao existem celulas com planta/ferramenta no jardim.\n";
     }
 }

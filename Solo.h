@@ -29,11 +29,20 @@ public:
     void mostraPlanta() const;
 
     //====GETTERS=====
+    Posicao getposicao() const;
     Posicao getposicao();
-    int getNutrientesSolo();
+
+    int getAgua() const;
     int getAgua();
+
+    int getNutrientesSolo() const;
+    int getNutrientesSolo();
+
     Planta *getPlanta();
+    const Planta* getPlanta() const;
+
     Ferramenta* getFerramenta();
+    const Ferramenta* getFerramenta() const;
 
     bool temPlanta() const;
     bool temFerramenta() const;

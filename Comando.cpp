@@ -1,5 +1,3 @@
-
-
 #include "Comando.h"
 #include "Jardim.h"
 #include <iostream>
@@ -88,8 +86,8 @@ std::string Comando::obtemInput(std::string message) {
 
 void Comando::mostraAjuda() const {
     std::cout << "\n==========================/LISTA DE COMANDOS/==========================================\n";
-    std::cout << "-avanca [n]        -lplantas     -colhe <l> <c>            -grava <nome>\n";
-    std::cout << "-entra <l><c>      -lplanta      -planta <l> <c> <tipo>    -recupera <nome>\n";
+    std::cout << "-avanca [n]        -lplantas     -colhe <l><c>             -grava <nome>\n";
+    std::cout << "-entra <l><c>      -lplanta      -planta <l><c> <tipo>     -recupera <nome>\n";
     std::cout << "-sai               -larea        -larga                    -apaga <nome>\n";
     std::cout << "                   -lsolo        -pega <n>                 -executa <nome-do-ficheiro>\n";
     std::cout << "                   -lferr        -compra <n>               -fim\n";
@@ -312,11 +310,6 @@ bool Comando::processaLinha(std::string linha) {
             return true;
         }
 
-        if (!jardim->temJardineiro()) {
-            std::cout << "ERRO: O jardineiro ainda nao entrou. Use: entra <lc>\n";
-            return true;
-        }
-
         bool ok = jardim->colhe(l, c);
         if (ok) jardim->mostra();
         return true;
@@ -448,7 +441,6 @@ bool Comando::processaLinha(std::string linha) {
             std::cout << "Compraste '" << nova->getNome() << "' e guardaste no INV.\n";
         }
 
-        std::cout << "Compraste '" << nova->getNome() << "' e ficou na tua mao.\n";
         jardim->mostra();
         return true;
     }
@@ -491,6 +483,12 @@ bool Comando::processaLinha(std::string linha) {
 
     // -------------------- movimentos e/d/c/b --------------------
     if (cmd == "e" || cmd == "d" || cmd == "c" || cmd == "b") {
+        if (!jardim->podeMover()) {
+            std::cout << "ERRO: Ja fizeste " << Settings::Jardineiro::max_movimentos
+                      << " movimentos neste turno. Usa: avanca\n";
+            return true;
+        }
+
         if (temExtra(iss)) {
             std::cout << "Sintaxe: " << cmd << " (sem parametros)\n";
             return true;
@@ -510,8 +508,12 @@ bool Comando::processaLinha(std::string linha) {
         else real = 's';                  // sul
 
         bool ok = jardim->getJardineiro()->mover(real, jardim->getLinhas(), jardim->getColunas());
-        if (!ok) std::cout << "Nao pode sair do jardim.\n";
-        jardim->apanhaFerramentaSeExistir();
+        if (!ok) {
+            std::cout << "Nao pode sair do jardim.\n";
+        } else {
+            jardim->registaMovimento();  // ✅ conta movimento válido
+            jardim->apanhaFerramentaSeExistir();
+        }
 
         jardim->mostra();
         return true;
@@ -607,4 +609,3 @@ bool Comando::processaLinha(std::string linha) {
     return true;
 
 }
-

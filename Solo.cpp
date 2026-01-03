@@ -34,15 +34,20 @@ Solo::~Solo() {
 }
 
 //====GETTERS====
-Planta* Solo::getPlanta() {return planta;}
+Planta* Solo::getPlanta() { return planta; }
+const Planta* Solo::getPlanta() const { return planta; }
 
 Ferramenta* Solo::getFerramenta() { return ferramenta; }
+const Ferramenta* Solo::getFerramenta() const { return ferramenta; }
 
-Posicao Solo::getposicao() {return p;}
+Posicao Solo::getposicao() const { return p; }
+Posicao Solo::getposicao() { return p; }
 
-int Solo::getAgua() {return agua;}
+int Solo::getAgua() const { return agua; }
+int Solo::getAgua() { return agua; }
 
-int Solo::getNutrientesSolo() {return nutrientes;}
+int Solo::getNutrientesSolo() const { return nutrientes; }
+int Solo::getNutrientesSolo() { return nutrientes; }
 
 bool Solo::temPlanta() const {return planta != nullptr;}
 
@@ -115,10 +120,24 @@ void Solo::mostraSolo() const {
     else
         std::cout << "Ferramenta no chao: (nenhuma)\n";
 
-    if (planta)
-        std::cout << "Planta: '" << planta->getChar() << "' (" << planta->getBeleza() << ")\n";
-    else
+    if (planta) {
+        std::cout << "Planta: ";
+
+        switch (planta->getChar()) {
+            case 'r': std::cout << "Roseira"; break;
+            case 'c': std::cout << "Cacto"; break;
+            case 'e': std::cout << "Erva Daninha"; break;
+            case 'x': std::cout << "Exotica"; break;
+            default:  std::cout << "Desconhecida"; break;
+        }
+
+        std::cout << " ('" << planta->getChar()
+                  << "') | Beleza: " << planta->getBeleza() << "\n";
+    }
+    else {
         std::cout << "Planta: (nenhuma)\n";
+    }
+
 }
 
 void Solo::mostraPlanta() const {

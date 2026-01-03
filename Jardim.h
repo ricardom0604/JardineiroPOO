@@ -18,12 +18,18 @@ class Jardim {
     Planta** plantas;
     Ferramenta** ferramentas;
 
+    int movimentosNoTurno = 0;
+    int colheitasNoTurno  = 0;
+    int plantacoesNoTurno = 0;
+
     // Métodos privados auxiliares para gestão interna
     void colocarFerramentaAleatoria(); //
 
 public:
     Jardim(int l, int c);
-    Jardim(const Jardim& outro);
+
+    Jardim(const Jardim &outro);
+
     ~Jardim();
 
     Solo& getSolo(int linha, int coluna);
@@ -56,9 +62,19 @@ public:
 
     void planta(char l, char c, char tipo);
     bool encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) const;
-    bool obterVizinhoQualquer(const Posicao& minhaPosicao, Posicao& destino) const;
 
+    bool obterVizinhoQualquer(const Posicao &minhaPosicao, Posicao &destino) const;
 
+    void resetTurno();
+
+    bool podeMover() const;
+    void registaMovimento();
+
+    bool podeColher() const;
+    void registaColheita();
+
+    bool podePlantar() const;
+    void registaPlantacao();
 };
 
 #endif
