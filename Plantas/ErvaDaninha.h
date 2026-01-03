@@ -20,6 +20,10 @@ public:
 
     virtual Planta* tentaMultiplicar(Jardim& jardim, const Posicao& minhaPosicao) override;
 
+    Planta* clona() const override {
+        return new ErvaDaninha(*this); // Cria uma cópia real de si mesmo
+    }
+
 };
 
 

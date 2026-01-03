@@ -16,6 +16,7 @@ protected:
 public:
     Ferramenta(const string &nome, char c);
     virtual ~Ferramenta();
+    virtual Ferramenta* clona() const = 0; //para retificar a situação quando recuperamos o jardim (1/4)jardi
 
     //===GETTERS===
     int getnSerie() const;

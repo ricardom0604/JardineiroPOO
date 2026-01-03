@@ -6,10 +6,6 @@
 #include <algorithm> // std::min
 #include <iostream>
 
-// Workaround (não usar diretamente Settings::... que dá undefined reference no MinGW)
-static const int ERVA_ABSORCAO_AGUA = 1;       // Settings::ErvaDaninha::absorcao_agua
-static const int ERVA_ABSORCAO_NUTR = 1;       // Settings::ErvaDaninha::absorcao_nutrientes
-
 ErvaDaninha::ErvaDaninha()
     : Planta(Settings::ErvaDaninha::inicial_agua,
              Settings::ErvaDaninha::inicial_nutrientes,
@@ -31,7 +27,7 @@ void ErvaDaninha::cadaInstante(Solo& solo) {
 
     // Absorção de Água (1 unidade, se existir)
     int aguaSolo = solo.getAgua();
-    int absorcaoAgua = std::min(ERVA_ABSORCAO_AGUA, aguaSolo);
+    int absorcaoAgua = std::min(+Settings::ErvaDaninha::absorcao_agua, aguaSolo);
     if (absorcaoAgua > 0) {
         solo.retiraAgua(absorcaoAgua);
         agua += absorcaoAgua;
@@ -39,10 +35,10 @@ void ErvaDaninha::cadaInstante(Solo& solo) {
 
     // Absorção de Nutrientes (1 unidade, se existir)
     int nutrientesSolo = solo.getNutrientesSolo();
-    int absorcaoNutrientes = std::min(ERVA_ABSORCAO_NUTR, nutrientesSolo);
+    int absorcaoNutrientes = std::min(+Settings::ErvaDaninha::absorcao_nutrientes, nutrientesSolo);
     if (absorcaoNutrientes > 0) {
         solo.retiraNutrientes(absorcaoNutrientes);
-        nutrientes += absorcaoNutrientes; // aqui era bug no teu: somavas ao "nutrientesSolo"
+        nutrientes += absorcaoNutrientes;
     }
 }
 

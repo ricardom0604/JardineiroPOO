@@ -8,7 +8,7 @@
 #include <iomanip>
 
 //Construtor padrão
-Solo::Solo(): planta(nullptr) {
+Solo::Solo(): planta(nullptr), ferramenta(nullptr) {
     agua = 80 + rand() % 21;        // [80, 100]
     nutrientes = 40 + rand() % 11;  // [40, 50]
 }
@@ -20,7 +20,7 @@ Solo::Solo(const Posicao& posicao) : p(posicao), planta(nullptr), ferramenta(nul
 }
 
 //Construtor de letras
-Solo::Solo(char l, char c) : planta(nullptr) {
+Solo::Solo(char l, char c) : planta(nullptr), ferramenta(nullptr) {
     p.setL(l - 'A');
     p.setC(c - 'A');
     agua = 80 + rand() % 21;
@@ -138,6 +138,32 @@ void Solo::mostraSolo() const {
         std::cout << "Planta: (nenhuma)\n";
     }
 
+}
+
+Solo& Solo::operator=(const Solo& outro) {
+    if (this == &outro) return *this;
+
+    // 1. Limpar o que existia antes para evitar fugas de memória
+    delete planta;      // Usando o nome correto do teu Solo.h
+    delete ferramenta;  // Usando o nome correto do teu Solo.h
+
+    // 2. Copiar as características básicas
+    this->p = outro.p;
+    this->agua = outro.agua;
+    this->nutrientes = outro.nutrientes;
+
+    // 3. CLONAR os objetos (Deep Copy)
+    if (outro.planta != nullptr)
+        this->planta = outro.planta->clona();
+    else
+        this->planta = nullptr;
+
+    if (outro.ferramenta != nullptr)
+        this->ferramenta = outro.ferramenta->clona();
+    else
+        this->ferramenta = nullptr;
+
+    return *this;
 }
 
 void Solo::mostraPlanta() const {

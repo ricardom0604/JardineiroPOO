@@ -23,8 +23,9 @@ public:
     virtual bool verificaMorte(const Solo& solo) const = 0;
     virtual void acaoMorte(Solo& solo) = 0;
     virtual Planta* tentaMultiplicar(Jardim& jardim, const Posicao& minhaPosicao) = 0;
+    virtual Planta* clona() const = 0;
 
-    // estes dois existem na tua derivada, então mete-os também na base:
+
     virtual void beleza() = 0;
     virtual void cresce() = 0;
 

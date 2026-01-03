@@ -20,6 +20,10 @@ public:
     void acaoMorte(Solo& solo) override;
 
     Planta* tentaMultiplicar(Jardim& jardim, const Posicao& minhaPosicao) override;
+
+    Planta* clona() const override {
+        return new Roseira(*this); // Cria uma cópia real de si mesmo
+    }
 };
 
 #endif // ROSEIRA_H

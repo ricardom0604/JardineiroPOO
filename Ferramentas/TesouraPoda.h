@@ -12,6 +12,10 @@ public:
     bool estaGasta() const override;
 
     void mostrarInfo() const override;
+
+    Ferramenta* clona() const override {
+        return new TesouraPoda(*this);
+    }
 };
 
 #endif

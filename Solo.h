@@ -25,6 +25,8 @@ public:
     Solo(char l, char c);
     ~Solo();
 
+    Solo& operator=(const Solo& outro);
+
     void mostraSolo() const;
     void mostraPlanta() const;
 

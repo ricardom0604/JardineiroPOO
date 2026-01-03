@@ -10,11 +10,16 @@ class Regador : public Ferramenta {
 public:
     Regador() : Ferramenta("Regador", 'g'), aguaAtual(Settings::Regador::capacidade) {}
 
+
     void usar(Solo& solo, Jardineiro& jardineiro) override;
 
     bool estaGasta() const override;
 
     void mostrarInfo() const override;
+
+    Ferramenta* clona() const override {
+        return new Regador(*this);
+    }
 };
 
 #endif

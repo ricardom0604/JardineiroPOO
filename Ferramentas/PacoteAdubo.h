@@ -8,12 +8,16 @@ class PacoteAdubo : public Ferramenta {
 
 public:
     PacoteAdubo() : Ferramenta("Pacote de Adubo", 'a'),
-                    quantidade(Settings::Adubo::capacidade) {} // Inicializa com 100 [cite: 94]
+                    quantidade(Settings::Adubo::capacidade) {} // Inicializa com 100
 
     void usar(Solo& solo, Jardineiro& jardineiro) override;
 
     bool estaGasta() const override;
     void mostrarInfo() const;
+
+    Ferramenta* clona() const override {
+        return new PacoteAdubo(*this);
+    }
 };
 
 #endif

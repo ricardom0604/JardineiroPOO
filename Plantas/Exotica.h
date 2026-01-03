@@ -23,6 +23,10 @@ public:
 
     // aqui ela “olha” para o jardim e escolhe o modo (camaleão)
     Planta* tentaMultiplicar(Jardim& jardim, const Posicao& minhaPosicao) override;
+
+    Planta* clona() const override {
+        return new Exotica(*this); // Cria uma cópia real de si mesmo
+    }
 };
 
 #endif // EXOTICA_H

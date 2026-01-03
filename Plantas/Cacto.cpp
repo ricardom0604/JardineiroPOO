@@ -6,9 +6,7 @@
 #include <cmath>
 #include <algorithm> // std::min
 
-// Workaround (não usar diretamente Settings::... que dá undefined reference no MinGW)
-static const int CACTO_ABSORCAO_AGUA_PERC = 25; // Settings::Cacto::absorcao_agua_percentagem
-static const int CACTO_ABSORCAO_NUTRIENTES = 5; // Settings::Cacto::absorcao_nutrientes
+
 
 Cacto::Cacto()
     : Planta(0, 0, "neutra", 'c'),
@@ -21,7 +19,6 @@ void Cacto::beleza() {
 }
 
 void Cacto::cresce() {
-    // por agora não faz nada
 }
 
 void Cacto::cadaInstante(Solo& solo) {
@@ -30,7 +27,7 @@ void Cacto::cadaInstante(Solo& solo) {
     // --- Absorção de água (25% do solo) ---
     int aguaSolo = solo.getAgua();
     int absorcaoAgua = (int)std::round(
-        aguaSolo * CACTO_ABSORCAO_AGUA_PERC / 100.0f
+        aguaSolo * Settings::Cacto::absorcao_agua_percentagem / 100.0f
     );
     absorcaoAgua = std::min(absorcaoAgua, aguaSolo);
 
@@ -39,9 +36,9 @@ void Cacto::cadaInstante(Solo& solo) {
         agua += absorcaoAgua;
     }
 
-    // --- Absorção de nutrientes (até 5 unidades) ---
+    //  Absorção de nutrientes (até 5 unidades)
     int nutrientesSolo = solo.getNutrientesSolo();
-    int absorcaoNutrientes = std::min(CACTO_ABSORCAO_NUTRIENTES, nutrientesSolo);
+    int absorcaoNutrientes = std::min(+Settings::Cacto::absorcao_nutrientes, nutrientesSolo);  //"+" força a passagem por valor, evitando um erro de 'undefined reference' no linker, já que o std::min espera uma referência (&)
 
     if (absorcaoNutrientes > 0) {
         solo.retiraNutrientes(absorcaoNutrientes);
