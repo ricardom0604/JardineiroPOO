@@ -363,7 +363,11 @@ bool Comando::executa() {
         char l, c;
         char tipo;
         if (!lePos(iss, l, c) || !leChar(iss, tipo) || temExtra(iss)) {
-            std::cout << "Sintaxe: planta <lc> <tipo> (tipo: c r e x)\n";
+            std::cout << "Sintaxe: planta <lc> <tipo> (tipo: c | r | e | x)\n";
+            return true;
+        }
+        if (!jardim->temJardineiro()) {
+            std::cout << "ERRO: O jardineiro ainda nao entrou. Use: entra <lc>\n";
             return true;
         }
         if (!eLetraPos(l) || !eLetraPos(c)) {
@@ -467,11 +471,11 @@ bool Comando::executa() {
     if (cmd == "compra") {
         char t;
         if (!leChar(iss, t) || temExtra(iss)) {
-            std::cout << "Sintaxe: compra <c> (c: g a t z)\n";
+            std::cout << "Sintaxe: compra <c> (c: g | a | t | z)\n";
             return true;
         }
         if (!eTipoFerramenta(t)) {
-            std::cout << "Tipo invalido. Use: g a t z\n";
+            std::cout << "Tipo invalido. Use: g | a | t | z\n";
             return true;
         }
 

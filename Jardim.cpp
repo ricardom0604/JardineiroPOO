@@ -127,7 +127,7 @@ void Jardim::mostra() {
             if (jardineiro != nullptr) {
                 Posicao pj = jardineiro->getPosicao();
                 if (pj.getL() == i && pj.getC() == j) {
-                    printf(" J ");
+                    printf(" * ");
                     continue;   // salta plantas/ferramentas
                 }
             }
