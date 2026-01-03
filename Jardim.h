@@ -48,6 +48,7 @@ public:
     void mostra();
     void mostraPlantas() const;
     void listaArea() const;
+    void apanhaFerramentaSeExistir(); // após entrar/mover
 
     void saiJardineiro();
     void listaPlantas() const;

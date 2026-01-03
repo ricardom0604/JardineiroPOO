@@ -159,45 +159,6 @@ bool Comando::executa() {
                   << "  Ricardo Antonio Ribeiro Miguel   No 2022135245\n";
         return false;
     }
-
-    // -------------------- usa --------------------
-    if (cmd == "usa") {
-        if (temExtra(iss)) {
-            std::cout << "Sintaxe: usa\n";
-            return true;
-        }
-
-        if (!jardimCriado) {
-            std::cout << "Nao existe jardim.\n";
-            return true;
-        }
-
-        Jardineiro* j = jardim->getJardineiro();
-        if (!j) {
-            std::cout << "Nao existe jardineiro no jardim.\n";
-            return true;
-        }
-
-        if (!j->temFerramenta()) {
-            std::cout << "Nao tens nenhuma ferramenta na mao.\n";
-            return true;
-        }
-
-        Solo& solo = jardim->getSolo(j->getPosicao());
-        Ferramenta* f = j->getFerramenta();
-
-        f->usar(solo, *j);
-
-        if (f->estaGasta()) {
-            std::cout << "A ferramenta ficou gasta.\n";
-            Ferramenta* gasta = j->largaFerramenta();
-            delete gasta;
-        }
-
-        jardim->mostra();
-        return true;
-    }
-
     // -------------------- avanca [n] --------------------
     if (cmd == "avanca") {
         int n = 1;
@@ -388,7 +349,7 @@ bool Comando::executa() {
     // -------------------- larga --------------------
     if (cmd == "larga") {
         if (temExtra(iss)) {
-            std::cout << "Sintaxe: larga (sem parametros)\n";
+            std::cout << "Sintaxe: larga\n";
             return true;
         }
         if (!jardim->temJardineiro()) {
@@ -398,25 +359,18 @@ bool Comando::executa() {
 
         Jardineiro* j = jardim->getJardineiro();
         if (!j->temFerramenta()) {
-            std::cout << "Nao tem ferramenta para largar.\n";
+            std::cout << "Nao tens ferramenta na mao.\n";
             return true;
         }
 
-        Posicao pj = j->getPosicao();
-        Solo& s = jardim->getSolo(pj.getL(), pj.getC());
+        Ferramenta* f = j->largaFerramenta();  // tira da mão
+        j->adicionaAoInventario(f);            // continua na posse (mochila)
 
-        if (s.temFerramenta()) {
-            std::cout << "ERRO: Ja existe uma ferramenta no chao nesta posicao.\n";
-            return true;
-        }
-
-        Ferramenta* f = j->largaFerramenta();
-        s.setFerramenta(f);
-
-        std::cout << "Largou a ferramenta '" << f->getNome() << "'\n";
+        std::cout << "Guardaste '" << f->getNome() << "' no inventario.\n";
         jardim->mostra();
         return true;
     }
+
 
     // -------------------- pega <n> --------------------
     if (cmd == "pega") {
@@ -435,26 +389,7 @@ bool Comando::executa() {
         }
 
         Jardineiro* j = jardim->getJardineiro();
-        Posicao pj = j->getPosicao();
-        Solo& s = jardim->getSolo(pj.getL(), pj.getC());
 
-        // CASO 1: há ferramenta no chão -> apanha
-        if (s.temFerramenta()) {
-            Ferramenta* f = s.removeFerramenta();
-
-            if (!j->temFerramenta()) {
-                j->pegaFerramenta(f);
-                std::cout << "Pegou na ferramenta (MAO) '" << f->getNome() << "'\n";
-            } else {
-                j->adicionaAoInventario(f);
-                std::cout << "Pegou na ferramenta (INV) '" << f->getNome() << "'\n";
-            }
-
-            jardim->mostra();
-            return true;
-        }
-
-        // CASO 2: não há ferramenta no chão -> usa o n para equipar do inventário
         if (!j->equipaDoInventario(n)) {
             std::cout << "ERRO: Nao existe ferramenta " << n << " no inventario.\n";
             return true;
@@ -485,12 +420,9 @@ bool Comando::executa() {
         }
 
         Jardineiro* j = jardim->getJardineiro();
-        if (j->temFerramenta()) {
-            std::cout << "ERRO: Ja tens uma ferramenta na mao. Usa: larga\n";
-            return true;
-        }
 
         Ferramenta* nova = nullptr;
+
         switch (std::tolower((unsigned char)t)) {
             case 'g': nova = new Regador(); break;
             case 'a': nova = new PacoteAdubo(); break;
@@ -504,7 +436,13 @@ bool Comando::executa() {
             return true;
         }
 
-        j->pegaFerramenta(nova); // mete na mão
+        if (!j->temFerramenta()) {
+            j->pegaFerramenta(nova);
+            std::cout << "Compraste '" << nova->getNome() << "' e equipaste na MAO.\n";
+        } else {
+            j->adicionaAoInventario(nova);
+            std::cout << "Compraste '" << nova->getNome() << "' e guardaste no INV.\n";
+        }
 
         std::cout << "Compraste '" << nova->getNome() << "' e ficou na tua mao.\n";
         jardim->mostra();
@@ -569,6 +507,7 @@ bool Comando::executa() {
 
         bool ok = jardim->getJardineiro()->mover(real, jardim->getLinhas(), jardim->getColunas());
         if (!ok) std::cout << "Nao pode sair do jardim.\n";
+        jardim->apanhaFerramentaSeExistir();
 
         jardim->mostra();
         return true;

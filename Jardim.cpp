@@ -101,6 +101,8 @@ bool Jardim::entraJardineiro(char lChar, char cChar) {
     else
         jardineiro->setPosicao(linha, coluna);
 
+    apanhaFerramentaSeExistir();
+
     return true;
 }
 
@@ -219,6 +221,31 @@ bool Jardim::encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) cons
     return false;
 }
 
+void Jardim::apanhaFerramentaSeExistir() {
+    if (!jardineiro) return;
+
+    Posicao pj = jardineiro->getPosicao();
+    Solo& s = getSolo(pj);
+
+    if (!s.temFerramenta()) return;
+
+    // 1) apanha a ferramenta do chão
+    Ferramenta* f = s.removeFerramenta();
+
+    // 2) põe na mão se estiver vazia, senão vai para inventário
+    if (!jardineiro->temFerramenta()) {
+        jardineiro->pegaFerramenta(f);
+        std::cout << "Apanhaste e equipaste '" << f->getNome() << "' (MAO).\n";
+    } else {
+        jardineiro->adicionaAoInventario(f);
+        std::cout << "Apanhaste '" << f->getNome() << "' (INV).\n";
+    }
+
+    // 3) “por magia” nasce outra aleatória em posição aleatória
+    colocarFerramentaAleatoria();
+}
+
+
 Solo& Jardim::getSolo(int linha, int coluna) {
     return mapa[linha][coluna];
 }
@@ -252,6 +279,19 @@ void Jardim::avanca(int n) {
             Planta* p;
         };
         std::vector<Nascimento> nascimentos;
+
+        // 0) ferramenta ativa atua 1x por instante
+        if (jardineiro && jardineiro->temFerramenta()) {
+            Solo& sJ = getSolo(jardineiro->getPosicao());
+            Ferramenta* f = jardineiro->getFerramenta();
+
+            f->usar(sJ, *jardineiro);
+
+            if (f->estaGasta()) {
+                Ferramenta* gasta = jardineiro->largaFerramenta();
+                delete gasta; // some
+            }
+        }
 
         // 1) cada instante: cada planta faz a sua ação
         for (int i = 0; i < l; i++) {
