@@ -29,24 +29,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="quase tudo implementado pt.3&#10;comandos grava, recupera, apaga e executa implementados">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/Ferramenta.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/Ferramenta.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/FerramentaZ.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/FerramentaZ.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/PacoteAdubo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/PacoteAdubo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/Regador.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/Regador.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ferramentas/TesouraPoda.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ferramentas/TesouraPoda.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Cacto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Cacto.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Cacto.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Cacto.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/ErvaDaninha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/ErvaDaninha.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/ErvaDaninha.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/ErvaDaninha.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Exotica.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Exotica.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Planta.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Planta.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plantas/Roseira.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plantas/Roseira.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulador.h" beforeDir="false" afterPath="$PROJECT_DIR$/Simulador.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Solo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Solo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Solo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solo.h" afterDir="false" />
+    <list default="true" id="01c6fc09-c72c-4703-bc88-462877f9139e" name="Changes" comment="TRABALHO FINAL(falta apenas o comando executa .txt)">
+      <change beforePath="$PROJECT_DIR$/Jardim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Jardim.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -553,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767458378478</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="TRABALHO FINAL(falta apenas o comando executa .txt)">
+      <option name="closed" value="true" />
+      <created>1767480422211</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1767480422211</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +570,8 @@
     <MESSAGE value="quase tudo implementado" />
     <MESSAGE value="quase tudo implementado pt.2" />
     <MESSAGE value="quase tudo implementado pt.3&#10;comandos grava, recupera, apaga e executa implementados" />
-    <option name="LAST_COMMIT_MESSAGE" value="quase tudo implementado pt.3&#10;comandos grava, recupera, apaga e executa implementados" />
+    <MESSAGE value="TRABALHO FINAL(falta apenas o comando executa .txt)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TRABALHO FINAL(falta apenas o comando executa .txt)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

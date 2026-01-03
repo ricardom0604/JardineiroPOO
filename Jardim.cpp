@@ -63,7 +63,6 @@ Jardim::Jardim(const Jardim& outro) : l(outro.l), c(outro.c) {
         // Assume que Jardineiro tem construtor de cópia ou usa os valores
         Posicao p = outro.jardineiro->getPosicao();
         jardineiro = new Jardineiro(p.getL(), p.getC());
-        // Se o jardineiro tiver ferramentas na mochila, terias de as copiar aqui também
     } else {
         jardineiro = nullptr;
     }
@@ -76,7 +75,7 @@ Jardim::~Jardim() {
     }
     delete[] mapa;
 
-    // Estes vetores devem ser geridos com cuidado se guardarem cópias de ponteiros
+    //devem ser geridos com cuidado se guardarem cópias de ponteiros
     delete[] ferramentas;
     delete[] plantas;
     delete jardineiro;
@@ -310,10 +309,10 @@ void Jardim::apanhaFerramentaSeExistir() {
 
     if (!s.temFerramenta()) return;
 
-    // 1) apanha a ferramenta do chão
+    // apanha a ferramenta do chão
     Ferramenta* f = s.removeFerramenta();
 
-    // 2) põe na mão se estiver vazia, senão vai para inventário
+    // põe na mão se estiver vazia, senão vai para inventário
     if (!jardineiro->temFerramenta()) {
         jardineiro->pegaFerramenta(f);
         std::cout << "Apanhaste e equipaste '" << f->getNome() << "' (MAO).\n";
@@ -322,7 +321,7 @@ void Jardim::apanhaFerramentaSeExistir() {
         std::cout << "Apanhaste '" << f->getNome() << "' (INV).\n";
     }
 
-    // 3) “por magia” nasce outra aleatória em posição aleatória
+    // “por magia” nasce outra aleatória em posição aleatória
     colocarFerramentaAleatoria();
 }
 

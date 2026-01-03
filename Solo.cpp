@@ -143,16 +143,16 @@ void Solo::mostraSolo() const {
 Solo& Solo::operator=(const Solo& outro) {
     if (this == &outro) return *this;
 
-    // 1. Limpar o que existia antes para evitar fugas de memória
-    delete planta;      // Usando o nome correto do teu Solo.h
-    delete ferramenta;  // Usando o nome correto do teu Solo.h
+    // Limpa o que existia antes para evitar fugas de memória
+    delete planta;
+    delete ferramenta;
 
-    // 2. Copiar as características básicas
+    // Copia as características básicas
     this->p = outro.p;
     this->agua = outro.agua;
     this->nutrientes = outro.nutrientes;
 
-    // 3. CLONAR os objetos (Deep Copy)
+    //CLONA os objetos (Deep Copy)
     if (outro.planta != nullptr)
         this->planta = outro.planta->clona();
     else
