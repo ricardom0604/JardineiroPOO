@@ -45,6 +45,29 @@ Jardim::Jardim(int l, int c) : l(l), c(c) {
     }
 }
 
+// Construtor de Cópia
+Jardim::Jardim(const Jardim& outro) : l(outro.l), c(outro.c) {
+    // Alocar novo mapa
+    mapa = new Solo*[l];
+    for (int i = 0; i < l; i++) {
+        mapa[i] = new Solo[c];
+        for (int j = 0; j < c; j++) {
+            // Copiar o Solo
+            mapa[i][j] = outro.mapa[i][j];
+        }
+    }
+
+    // Copiar o Jardineiro se ele existir
+    if (outro.jardineiro != nullptr) {
+        // Assume que Jardineiro tem construtor de cópia ou usa os valores
+        Posicao p = outro.jardineiro->getPosicao();
+        jardineiro = new Jardineiro(p.getL(), p.getC());
+        // Se o jardineiro tiver ferramentas na mochila, terias de as copiar aqui também
+    } else {
+        jardineiro = nullptr;
+    }
+}
+
 Jardim::~Jardim() {
     // Libertar a memória de cada célula do Solo
     for (int i = 0; i < l; i++) {
@@ -221,6 +244,28 @@ bool Jardim::encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) cons
     return false;
 }
 
+// Jardim.cpp
+
+bool Jardim::obterVizinhoQualquer(const Posicao& minhaPosicao, Posicao& destino) const {
+    int linha = minhaPosicao.getL();
+    int coluna = minhaPosicao.getC();
+
+    int dL[8] = { -1, 1, 0, 0, -1, -1, 1, 1 };
+    int dC[8] = { 0, 0, 1, -1, 1, -1, 1, -1 };
+
+    for (int i = 0; i < 8; i++) {
+        int novaL = linha + dL[i];
+        int novaC = coluna + dC[i];
+
+        if (novaL >= 0 && novaL < l && novaC >= 0 && novaC < c) {
+            destino.setL(novaL);
+            destino.setC(novaC);
+            return true;
+        }
+    }
+    return false;
+}
+
 void Jardim::apanhaFerramentaSeExistir() {
     if (!jardineiro) return;
 
@@ -271,29 +316,29 @@ void Jardim::avanca(int n) {
     if (n <= 0) return;
 
     for (int passo = 0; passo < n; passo++) {
-        //std::cout << "\n--- Instante " << passo + 1 << " ---\n"; (so p ver se o avanca ta bom)
-
-        // Guardar nascimentos (para não mexer na matriz enquanto percorremos)
         struct Nascimento {
             int l, c;
             Planta* p;
         };
         std::vector<Nascimento> nascimentos;
 
-        // 0) ferramenta ativa atua 1x por instante
-        if (jardineiro && jardineiro->temFerramenta()) {
+        // 0) Ações do Jardineiro (Ferramenta ativa atua 1x por instante)
+        if (jardineiro != nullptr && jardineiro->temFerramenta()) {
+            // Obtém a célula onde o jardineiro está
             Solo& sJ = getSolo(jardineiro->getPosicao());
             Ferramenta* f = jardineiro->getFerramenta();
 
+            // Usa a ferramenta na posição atual do jardineiro
             f->usar(sJ, *jardineiro);
 
+            // Se a ferramenta se gastou (ex: acabou o adubo ou a água do regador)
             if (f->estaGasta()) {
                 Ferramenta* gasta = jardineiro->largaFerramenta();
-                delete gasta; // some
+                delete gasta; // A ferramenta desaparece após o uso total
             }
         }
 
-        // 1) cada instante: cada planta faz a sua ação
+        // 1) Ciclo de vida das Plantas
         for (int i = 0; i < l; i++) {
             for (int j = 0; j < c; j++) {
                 Solo& s = mapa[i][j];
@@ -301,13 +346,10 @@ void Jardim::avanca(int n) {
 
                 if (!p) continue;
 
-                // A planta atua sobre o solo
+                // A planta absorve água e nutrientes do solo
                 p->cadaInstante(s);
 
-                // Exótica camaleão: usa isto para "ver vizinhos" e atualizar modo
-                // (ela devolve nullptr, mas faz update interno)
-
-                // Morte
+                // Verificação de Morte (Erva Daninha morre aos 60 instantes)
                 if (p->verificaMorte(s)) {
                     p->acaoMorte(s);
                     Planta* morto = s.removePlanta();
@@ -315,25 +357,48 @@ void Jardim::avanca(int n) {
                     continue;
                 }
 
-                // Multiplicação (se alguma planta devolver nova planta)
+                // Multiplicação
                 Planta* nova = p->tentaMultiplicar(*this, Posicao(i, j));
                 if (nova != nullptr) {
                     Posicao destino;
-                    if (encontraVizinho(Posicao(i, j), destino)) {
+                    bool encontrou = false;
+
+                    // Lógica de vizinhança diferenciada
+                    if (nova->getChar() == 'e') {
+                        // Erva Daninha pode ir para qualquer lado (mesmo ocupado)
+                        encontrou = obterVizinhoQualquer(Posicao(i, j), destino);
+                    } else {
+                        // Outras plantas precisam de solo vazio
+                        encontrou = encontraVizinho(Posicao(i, j), destino);
+                    }
+
+                    if (encontrou) {
                         nascimentos.push_back({ destino.getL(), destino.getC(), nova });
                     } else {
-                        delete nova; // não há espaço
+                        delete nova; // Não encontrou posição válida
                     }
                 }
             }
         }
 
-        // 2) Colocar os nascimentos no fim do instante
+        // 2) Processamento de Nascimentos (Onde a Erva Daninha "mata" as outras)
         for (auto& nasc : nascimentos) {
-            if (!mapa[nasc.l][nasc.c].temPlanta()) {
-                mapa[nasc.l][nasc.c].setPlanta(nasc.p);
-            } else {
-                delete nasc.p; // se entretanto ocupou, limpa
+            Solo& sDestino = mapa[nasc.l][nasc.c];
+
+            // Se for Erva Daninha, ela substitui o que lá estiver
+            if (nasc.p->getChar() == 'e') {
+                if (sDestino.temPlanta()) {
+                    Planta* vitima = sDestino.removePlanta();
+                    delete vitima; // "Mata" a planta anterior limpando a memória
+                }
+                sDestino.setPlanta(nasc.p);
+            }
+            // Outras plantas só nascem se o solo estiver limpo
+            else if (!sDestino.temPlanta()) {
+                sDestino.setPlanta(nasc.p);
+            }
+            else {
+                delete nasc.p; // Morre por falta de espaço
             }
         }
     }

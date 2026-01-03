@@ -1,10 +1,4 @@
 
-// Comando.cpp (versão focada em VALIDAÇÃO de comandos - Meta 1)
-// - Valida sintaxe, tipos, número de argumentos e "args a mais".
-// - Assume posições no formato "df" (2 letras juntas), como no enunciado.
-// - Impõe: antes de criar jardim, só aceita "jardim", "executa" e "fim".
-// - Aqui "jardim" cria mesmo o Jardim (para poderes avançar já).
-//   Se preferires só validar sem criar, diz e eu adapto.
 
 #include "Comando.h"
 #include "Jardim.h"
@@ -102,17 +96,20 @@ void Comando::mostraAjuda() const {
     std::cout << "======================================================================================\n";
 }
 
+// LOOP PRINCIPAL (Lê apenas o teclado)
 bool Comando::executa() {
-    mostraAjuda();
-
-    std::string linha = obtemInput("Comando:");
-    std::istringstream iss(linha);
-
-    std::string cmd;
-    if (!(iss >> cmd)) {
-        std::cout << "Comando vazio.\n";
-        return true;
+    while (true) {
+        std::string linha = obtemInput("Comando:");
+        if (!processaLinha(linha)) return false; // Se retornar false, o programa fecha (comando fim)
     }
+}
+
+bool Comando::processaLinha(std::string linha) {
+    if (linha.empty() || linha[0] == '#') return true;
+
+    std::istringstream iss(linha);
+    std::string cmd;
+    if (!(iss >> cmd)) return true;
 
     // antes do jardim existir, só aceitamos: jardim, executa, fim
     if (!jardimCriado && cmd != "jardim" && cmd != "executa" && cmd != "fim") {
@@ -513,6 +510,7 @@ bool Comando::executa() {
         return true;
     }
 
+
     // -------------------- executa <ficheiro> --------------------
     if (cmd == "executa") {
         std::string fich;
@@ -520,11 +518,86 @@ bool Comando::executa() {
             std::cout << "Sintaxe: executa <nome-do-ficheiro>\n";
             return true;
         }
-        std::cout << "Comando valido: executa " << fich << "\n";
+
+        std::ifstream ficheiro(fich);
+        if (!ficheiro.is_open()) {
+            std::cout << "Erro: Nao foi possivel abrir o ficheiro '" << fich << "'\n";
+            return true;
+        }
+
+        std::string linhaFich;
+        while (std::getline(ficheiro, linhaFich)) {
+            // Ignora linhas vazias ou comentários
+            if (linhaFich.empty() || linhaFich[0] == '#') continue;
+
+            std::cout << "A executar do ficheiro: " << linhaFich << "\n";
+            // processaLinha(linhaFich);
+        }
+        ficheiro.close();
+        return true;
+    }
+
+    // -------------------- grava <nome> --------------------
+    if (cmd == "grava") {
+        string nome;
+        if (!(iss >> nome) || temExtra(iss)) {
+            cout << "Sintaxe: grava <nome>" << endl;
+        } else {
+            // Se já existir um save com este nome, apaga o antigo antes de substituir
+            if (saves.count(nome)) {
+                delete saves[nome];
+            }
+            // Cria uma cópia profunda do jardim atual
+            saves[nome] = new Jardim(*jardim);
+            cout << "Jardim guardado com sucesso: " << nome << endl;
+        }
+        return true;
+    }
+
+    // -------------------- recupera <nome> --------------------
+    if (cmd == "recupera") {
+        string nome;
+        if (!(iss >> nome) || temExtra(iss)) {
+            cout << "Sintaxe: recupera <nome>" << endl;
+        } else {
+            auto it = saves.find(nome);
+            if (it == saves.end()) {
+                cout << "Erro: Save '" << nome << "' nao encontrado." << endl;
+            } else {
+                // 1. Apaga o jardim que está a correr agora
+                delete jardim;
+                // 2. Substitui pelo jardim que estava guardado
+                jardim = it->second;
+                // 3. Remove a entrada do mapa (a cópia é eliminada dos saves)
+                saves.erase(it);
+                cout << "Jardim recuperado. Copia eliminada dos saves." << endl;
+                jardim->mostra();
+            }
+        }
+        return true;
+    }
+
+    // -------------------- apaga <nome> --------------------
+    if (cmd == "apaga") {
+        string nome;
+        if (!(iss >> nome) || temExtra(iss)) {
+            cout << "Sintaxe: apaga <nome>" << endl;
+        } else {
+            auto it = saves.find(nome);
+            if (it != saves.end()) {
+                delete it->second; // Limpa a memória da cópia
+                saves.erase(it);   // Remove do mapa
+                cout << "Save '" << nome << "' apagado." << endl;
+            } else {
+                cout << "Erro: Save nao encontrado." << endl;
+            }
+        }
         return true;
     }
 
     // se chegou aqui, não existe
     std::cout << "Comando invalido! Use um da lista.\n";
     return true;
+
 }
+

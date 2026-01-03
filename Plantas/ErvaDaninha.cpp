@@ -55,17 +55,21 @@ void ErvaDaninha::acaoMorte(Solo& /*solo*/) {
 }
 
 Planta* ErvaDaninha::tentaMultiplicar(Jardim& jardim, const Posicao& minhaPosicao) {
+    // Regra: Nutrientes > 30 e passaram 5 instantes desde a última vez
     if (nutrientes > Settings::ErvaDaninha::multiplica_nutrientes_maior &&
         instantesDesdeUltimaMultiplicacao >= Settings::ErvaDaninha::multiplica_instantes) {
 
         Posicao destino;
-        if (jardim.encontraVizinho(minhaPosicao, destino)) {
+        if (jardim.obterVizinhoQualquer(minhaPosicao, destino)) {
             instantesDesdeUltimaMultiplicacao = 0;
+
+            // A lógica de "matar" quem lá está deve ser executada no Jardim::avanca
             return new ErvaDaninha();
         }
-    }
+        }
     return nullptr;
 }
+
 
 void ErvaDaninha::mostrarInfoPlanta() const {
     Planta::mostrarInfoPlanta();

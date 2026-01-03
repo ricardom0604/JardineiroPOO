@@ -23,6 +23,7 @@ class Jardim {
 
 public:
     Jardim(int l, int c);
+    Jardim(const Jardim& outro);
     ~Jardim();
 
     Solo& getSolo(int linha, int coluna);
@@ -55,6 +56,7 @@ public:
 
     void planta(char l, char c, char tipo);
     bool encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) const;
+    bool obterVizinhoQualquer(const Posicao& minhaPosicao, Posicao& destino) const;
 
 
 };
