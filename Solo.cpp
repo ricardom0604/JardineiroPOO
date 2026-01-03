@@ -4,7 +4,8 @@
 
 #include "Solo.h"
 #include <cctype>
-
+#include <iostream>
+#include <iomanip>
 
 //Construtor padrão
 Solo::Solo(): planta(nullptr) {
@@ -27,7 +28,10 @@ Solo::Solo(char l, char c) : planta(nullptr) {
 }
 
 //Destrutor
-Solo::~Solo() { delete planta;}
+Solo::~Solo() {
+    delete planta;
+    delete ferramenta;
+}
 
 //====GETTERS====
 Planta* Solo::getPlanta() {return planta;}
@@ -99,4 +103,28 @@ bool Solo::eValido(char l, char c) {
     c = (char)std::tolower((unsigned char)c);
 
     return (l >= 'a' && l <= 'z' && c >= 'a' && c <= 'z');
+}
+
+
+void Solo::mostraSolo() const {
+    std::cout << "Agua: " << agua << " | Nutrientes: " << nutrientes << "\n";
+
+    if (ferramenta)
+        std::cout << "Ferramenta no chao: " << ferramenta->getNome()
+                  << " ('" << ferramenta->getChar() << "')\n";
+    else
+        std::cout << "Ferramenta no chao: (nenhuma)\n";
+
+    if (planta)
+        std::cout << "Planta: '" << planta->getChar() << "' (" << planta->getBeleza() << ")\n";
+    else
+        std::cout << "Planta: (nenhuma)\n";
+}
+
+void Solo::mostraPlanta() const {
+    if (!planta) {
+        std::cout << "Nao existe planta nesta posicao.\n";
+        return;
+    }
+    planta->mostrarInfoPlanta();
 }

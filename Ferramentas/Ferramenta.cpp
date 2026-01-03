@@ -1,7 +1,3 @@
-//
-// Created by bruni on 23/10/2025.
-//
-
 #include "Ferramenta.h"
 #include <iostream>
 #include <string>

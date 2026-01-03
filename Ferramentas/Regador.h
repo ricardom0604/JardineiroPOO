@@ -2,7 +2,6 @@
 #define REGADOR_H
 
 #include "Ferramenta.h"
-#include "Jardineiro.h"
 #include "Settings.h"
 
 class Regador : public Ferramenta {

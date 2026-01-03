@@ -25,8 +25,8 @@ public:
     Solo(char l, char c);
     ~Solo();
 
-
-
+    void mostraSolo() const;
+    void mostraPlanta() const;
 
     //====GETTERS=====
     Posicao getposicao();
@@ -41,6 +41,9 @@ public:
     //====SETTERS====
     bool setPlanta(Planta *novaPlanta);
     void setFerramenta(Ferramenta *novaFerramenta);
+    void setAgua(int a);
+    void setNutrientes(int n);
+
 
     Planta* removePlanta(); // Retorna o ponteiro removido
     Ferramenta* removeFerramenta();

@@ -1,17 +1,19 @@
-//
-// Created by bruni on 23/10/2025.
-//
-
 #include "TesouraPoda.h"
 #include "Solo.h"
 #include <iostream>
 
-void TesouraPoda::usar(Solo& solo, Jardineiro& jardineiro) {
-    if (solo.temPlanta()) {
-        std::cout << "A tesoura de poda foi utilizada." << std::endl;
+void TesouraPoda::mostrarInfo() const {Ferramenta::mostrarInfo();}
+
+void TesouraPoda::usar(Solo& solo, Jardineiro&) {
+    Planta* p = solo.getPlanta();
+    if (!p) return;
+
+    if (p->eFeia()) {
+        delete solo.removePlanta();
+        std::cout << "Planta feia removida.\n";
     }
 }
 
-bool TesouraPoda::estaGasta() const {return false;} //a tesoura nunca se desgata
-
-void TesouraPoda::mostrarInfo() const {Ferramenta::mostrarInfo();}
+bool TesouraPoda::estaGasta() const {
+    return false; // nunca gasta
+}

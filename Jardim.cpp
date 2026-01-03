@@ -10,10 +10,13 @@
 #include "Plantas/Planta.h"
 #include "Plantas/Roseira.h"
 #include "Plantas/Exotica.h"
+#include "Plantas/Cacto.h"
+#include "Plantas/ErvaDaninha.h"
 #include "Regador.h"
 #include "PacoteAdubo.h"
 #include "TesouraPoda.h"
 #include "FerramentaZ.h"
+#include <vector>
 
 Jardim::Jardim(int l, int c) : l(l), c(c) {
     srand(static_cast<unsigned int>(time(NULL)));
@@ -45,11 +48,6 @@ Jardim::Jardim(int l, int c) : l(l), c(c) {
 Jardim::~Jardim() {
     // Libertar a memória de cada célula do Solo
     for (int i = 0; i < l; i++) {
-        for (int j = 0; j < c; j++) {
-            // O Solo é dono da planta e da ferramenta
-            delete mapa[i][j].getPlanta();
-            delete mapa[i][j].getFerramenta();
-        }
         delete[] mapa[i];
     }
     delete[] mapa;
@@ -157,6 +155,13 @@ void Jardim::mostra() {
     for (int j = 0; j < c; j++)
         printf("---");
     printf("+\n");
+
+    // Informação extra do jardineiro (opcional)
+    if (jardineiro != nullptr && jardineiro->temFerramenta()) {
+        std::cout << "Ferramenta na mao: "
+                  << jardineiro->getFerramenta()->getNome()
+                  << "\n";
+    }
 }
 
 void Jardim::planta(char lChar, char cChar, char tipo) {
@@ -177,9 +182,10 @@ void Jardim::planta(char lChar, char cChar, char tipo) {
 
     Planta *p = nullptr;
     switch (std::tolower(tipo)) {
-        case 'x': p = new Exotica(); break;
         case 'r': p = new Roseira(); break;
-        // Futuro: case 'c': case 'e': case 'x'
+        case 'c': p = new Cacto(); break;
+        case 'e': p = new ErvaDaninha(); break;
+        case 'x': p = new Exotica(); break;
         default:
             std::cout << "ERRO: Tipo de planta desconhecido.\n";
             return;
@@ -219,4 +225,167 @@ Solo& Jardim::getSolo(int linha, int coluna) {
 
 const Solo& Jardim::getSolo(int linha, int coluna) const {
     return mapa[linha][coluna];
+}
+
+Solo& Jardim::getSolo(const Posicao& p) {
+    return mapa[p.getL()][p.getC()];
+}
+
+const Solo& Jardim::getSolo(const Posicao& p) const {
+    return mapa[p.getL()][p.getC()];
+}
+
+void Jardim::saiJardineiro() {
+    delete jardineiro;
+    jardineiro = nullptr;
+}
+
+void Jardim::avanca(int n) {
+    if (n <= 0) return;
+
+    for (int passo = 0; passo < n; passo++) {
+        //std::cout << "\n--- Instante " << passo + 1 << " ---\n"; (so p ver se o avanca ta bom)
+
+        // Guardar nascimentos (para não mexer na matriz enquanto percorremos)
+        struct Nascimento {
+            int l, c;
+            Planta* p;
+        };
+        std::vector<Nascimento> nascimentos;
+
+        // 1) cada instante: cada planta faz a sua ação
+        for (int i = 0; i < l; i++) {
+            for (int j = 0; j < c; j++) {
+                Solo& s = mapa[i][j];
+                Planta* p = s.getPlanta();
+
+                if (!p) continue;
+
+                // A planta atua sobre o solo
+                p->cadaInstante(s);
+
+                // Exótica camaleão: usa isto para "ver vizinhos" e atualizar modo
+                // (ela devolve nullptr, mas faz update interno)
+
+                // Morte
+                if (p->verificaMorte(s)) {
+                    p->acaoMorte(s);
+                    Planta* morto = s.removePlanta();
+                    delete morto;
+                    continue;
+                }
+
+                // Multiplicação (se alguma planta devolver nova planta)
+                Planta* nova = p->tentaMultiplicar(*this, Posicao(i, j));
+                if (nova != nullptr) {
+                    Posicao destino;
+                    if (encontraVizinho(Posicao(i, j), destino)) {
+                        nascimentos.push_back({ destino.getL(), destino.getC(), nova });
+                    } else {
+                        delete nova; // não há espaço
+                    }
+                }
+            }
+        }
+
+        // 2) Colocar os nascimentos no fim do instante
+        for (auto& nasc : nascimentos) {
+            if (!mapa[nasc.l][nasc.c].temPlanta()) {
+                mapa[nasc.l][nasc.c].setPlanta(nasc.p);
+            } else {
+                delete nasc.p; // se entretanto ocupou, limpa
+            }
+        }
+    }
+}
+
+bool Jardim::colhe(char lChar, char cChar) {
+    int linha  = std::tolower((unsigned char)lChar) - 'a';
+    int coluna = std::tolower((unsigned char)cChar) - 'a';
+
+    if (linha < 0 || linha >= l || coluna < 0 || coluna >= c) {
+        std::cout << "ERRO: Coordenadas fora do jardim.\n";
+        return false;
+    }
+
+    Solo& s = mapa[linha][coluna];
+
+    if (!s.temPlanta()) {
+        std::cout << "ERRO: Nao existe planta nessa posicao.\n";
+        return false;
+    }
+
+    Planta* p = s.removePlanta();   // tira do solo
+    delete p;                       // apaga a planta (colhida)
+
+    std::cout << "Planta colhida em " << (char)std::toupper(lChar)
+              << (char)std::toupper(cChar) << ".\n";
+    return true;
+}
+
+bool Jardim::compra(char tipo) {
+    if (!jardineiro) {
+        std::cout << "ERRO: O jardineiro ainda nao entrou. Use: entra <lc>\n";
+        return false;
+    }
+
+    tipo = (char)std::tolower((unsigned char)tipo);
+
+    Ferramenta* nova = nullptr;
+    switch (tipo) {
+        case 'g': nova = new Regador(); break;
+        case 'a': nova = new PacoteAdubo(); break;
+        case 't': nova = new TesouraPoda(); break;
+        case 'z': nova = new FerramentaZ(); break;
+        default:
+            std::cout << "ERRO: Tipo invalido. Use: g a t z\n";
+            return false;
+    }
+
+    // posição atual do jardineiro
+    Posicao pj = jardineiro->getPosicao();
+    Solo& s = getSolo(pj);
+
+    // regra: compra coloca no chão; se já houver ferramenta ali, dá erro
+    if (s.temFerramenta()) {
+        std::cout << "ERRO: Ja existe uma ferramenta no chao nesta posicao.\n";
+        delete nova;
+        return false;
+    }
+
+    s.setFerramenta(nova);
+    std::cout << "Comprou '" << nova->getNome() << "' e ficou no chao.\n";
+    return true;
+}
+
+void Jardim::listaPlantas() const {
+    bool encontrou = false;
+
+    for (int i = 0; i < l; i++) {
+        for (int j = 0; j < c; j++) {
+            Solo& s = mapa[i][j];
+            Planta* p = s.getPlanta();
+            if (!p) continue;
+
+            encontrou = true;
+            std::cout << "[" << (char)('A' + i) << (char)('A' + j) << "]\n";
+            p->mostrarInfoPlanta();
+            std::cout << "\n";
+        }
+    }
+
+    if (!encontrou) {
+        std::cout << "Nao existem plantas no jardim.\n";
+    }
+}
+
+void Jardim::listaArea() const {
+    for (int i = 0; i < l; i++) {
+        for (int j = 0; j < c; j++) {
+            const Solo& s = mapa[i][j];
+            std::cout << "=== [" << (char)('A' + i) << (char)('A' + j) << "] ===\n";
+            s.mostraSolo();
+            std::cout << "\n";
+        }
+    }
 }

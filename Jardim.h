@@ -1,8 +1,6 @@
 #ifndef JARDIM_H
 #define JARDIM_H
 
-#include <iostream>
-
 #include "Jardineiro.h"
 
 class Solo;
@@ -30,6 +28,9 @@ public:
     Solo& getSolo(int linha, int coluna);
     const Solo& getSolo(int linha, int coluna) const;
 
+    Solo& getSolo(const Posicao& p);
+    const Solo& getSolo(const Posicao& p) const;
+
     //====GETTERS==
     int getLinhas() const { return l; }
     int getColunas() const { return c; }
@@ -38,12 +39,22 @@ public:
     Jardineiro* getJardineiro() const { return jardineiro; }
 
     bool entraJardineiro(char lChar, char cChar);
+    bool compra(char tipo);
+
+    void avanca(int n);
+
+    bool colhe(char lChar, char cChar);
 
     void mostra();
     void mostraPlantas() const;
+    void listaArea() const;
+
+    void saiJardineiro();
+    void listaPlantas() const;
 
     void planta(char l, char c, char tipo);
     bool encontraVizinho(const Posicao& minhaPosicao, Posicao& destino) const;
+
 
 };
 

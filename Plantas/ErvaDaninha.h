@@ -1,7 +1,3 @@
-//
-// Created by bruni on 23/10/2025.
-//
-
 #ifndef ERVADANINHA_H
 #define ERVADANINHA_H
 #include "Planta.h"

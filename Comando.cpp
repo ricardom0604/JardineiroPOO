@@ -12,6 +12,13 @@
 #include <sstream>
 #include <string>
 #include <cctype>
+#include <fstream>
+#include "Ferramentas/Regador.h"
+#include "Ferramentas/PacoteAdubo.h"
+#include "Ferramentas/TesouraPoda.h"
+#include "Ferramentas/FerramentaZ.h"
+
+#include "Solo.h"
 
 using namespace std;
 
@@ -88,7 +95,7 @@ std::string Comando::obtemInput(std::string message) {
 void Comando::mostraAjuda() const {
     std::cout << "\n==========================/LISTA DE COMANDOS/==========================================\n";
     std::cout << "-avanca [n]        -lplantas     -colhe <l> <c>            -grava <nome>\n";
-    std::cout << "-entra <l> <c>     -lplanta      -planta <l> <c> <tipo>    -recupera <nome>\n";
+    std::cout << "-entra <l><c>      -lplanta      -planta <l> <c> <tipo>    -recupera <nome>\n";
     std::cout << "-sai               -larea        -larga                    -apaga <nome>\n";
     std::cout << "                   -lsolo        -pega <n>                 -executa <nome-do-ficheiro>\n";
     std::cout << "                   -lferr        -compra <n>               -fim\n";
@@ -153,6 +160,44 @@ bool Comando::executa() {
         return false;
     }
 
+    // -------------------- usa --------------------
+    if (cmd == "usa") {
+        if (temExtra(iss)) {
+            std::cout << "Sintaxe: usa\n";
+            return true;
+        }
+
+        if (!jardimCriado) {
+            std::cout << "Nao existe jardim.\n";
+            return true;
+        }
+
+        Jardineiro* j = jardim->getJardineiro();
+        if (!j) {
+            std::cout << "Nao existe jardineiro no jardim.\n";
+            return true;
+        }
+
+        if (!j->temFerramenta()) {
+            std::cout << "Nao tens nenhuma ferramenta na mao.\n";
+            return true;
+        }
+
+        Solo& solo = jardim->getSolo(j->getPosicao());
+        Ferramenta* f = j->getFerramenta();
+
+        f->usar(solo, *j);
+
+        if (f->estaGasta()) {
+            std::cout << "A ferramenta ficou gasta.\n";
+            Ferramenta* gasta = j->largaFerramenta();
+            delete gasta;
+        }
+
+        jardim->mostra();
+        return true;
+    }
+
     // -------------------- avanca [n] --------------------
     if (cmd == "avanca") {
         int n = 1;
@@ -167,17 +212,41 @@ bool Comando::executa() {
             std::cout << "'n' tem de ser inteiro positivo.\n";
             return true;
         }
-        std::cout << "Comando valido: avanca " << n << "\n";
+        jardim->avanca(n);
+        jardim->mostra();
+
         return true;
     }
 
     // -------------------- listagens sem args --------------------
-    if (cmd == "lplantas" || cmd == "larea" || cmd == "lferr") {
+    if (cmd == "lplantas" || cmd == "larea") {
         if (temExtra(iss)) {
             std::cout << "Sintaxe: " << cmd << " (sem parametros)\n";
             return true;
         }
-        std::cout << "Comando valido: " << cmd << "\n";
+
+        if (cmd == "lplantas") {
+            jardim->listaPlantas();
+        } else { // larea
+            jardim->listaArea();
+        }
+
+        return true;
+    }
+
+
+    // -------------------- lferr --------------------
+    if (cmd == "lferr") {
+        if (temExtra(iss)) {
+            std::cout << "Sintaxe: lferr\n";
+            return true;
+        }
+        if (!jardim->temJardineiro()) {
+            std::cout << "ERRO: O jardineiro ainda nao entrou. Use: entra <lc>\n";
+            return true;
+        }
+
+        jardim->getJardineiro()->listarFerramentas();
         return true;
     }
 
@@ -192,9 +261,21 @@ bool Comando::executa() {
             std::cout << "Posicao invalida. Usa duas letras (a..z)\n";
             return true;
         }
-        std::cout << "Comando valido: lplanta " << l << c << "\n";
+
+        int li = std::tolower((unsigned char)l) - 'a';
+        int co = std::tolower((unsigned char)c) - 'a';
+
+        if (li < 0 || li >= jardim->getLinhas() || co < 0 || co >= jardim->getColunas()) {
+            std::cout << "Posicao fora do jardim.\n";
+            return true;
+        }
+
+        const Solo& s = jardim->getSolo(li, co);
+        std::cout << "Planta em " << (char)std::toupper(l) << (char)std::toupper(c) << ":\n";
+        s.mostraPlanta();
         return true;
     }
+
 
     // -------------------- lsolo <lc> [n] --------------------
     if (cmd == "lsolo") {
@@ -208,26 +289,51 @@ bool Comando::executa() {
             return true;
         }
 
-        int n;
-        if (leInt(iss, n)) {
-            if (temExtra(iss)) {
-                std::cout << "Sintaxe: lsolo <lc> [n]\n";
-                return true;
+        int n = 0;
+        int tmp;
+        if (leInt(iss, tmp)) n = tmp;
+
+        if (temExtra(iss)) {
+            std::cout << "Sintaxe: lsolo <lc> [n]\n";
+            return true;
+        }
+        if (n < 0) {
+            std::cout << "'n' tem de ser >= 0.\n";
+            return true;
+        }
+
+        int li = std::tolower((unsigned char)l) - 'a';
+        int co = std::tolower((unsigned char)c) - 'a';
+
+        if (li < 0 || li >= jardim->getLinhas() || co < 0 || co >= jardim->getColunas()) {
+            std::cout << "Posicao fora do jardim.\n";
+            return true;
+        }
+
+        // n == 0: só a posição
+        if (n == 0) {
+            const Solo& s = jardim->getSolo(li, co);
+            std::cout << "Solo em " << (char)std::toupper(l) << (char)std::toupper(c) << ":\n";
+            s.mostraSolo();
+            return true;
+        }
+
+        // n > 0: mostra área (2n+1)x(2n+1)
+        std::cout << "Solo num raio " << n << " em torno de "
+                  << (char)std::toupper(l) << (char)std::toupper(c) << ":\n";
+
+        for (int i = li - n; i <= li + n; i++) {
+            for (int j = co - n; j <= co + n; j++) {
+                if (i < 0 || j < 0 || i >= jardim->getLinhas() || j >= jardim->getColunas())
+                    continue;
+
+                std::cout << "\n[" << (char)('A' + i) << (char)('A' + j) << "]\n";
+                jardim->getSolo(i, j).mostraSolo();
             }
-            if (n < 0) {
-                std::cout << "'n' tem de ser >= 0.\n";
-                return true;
-            }
-            std::cout << "Comando valido: lsolo " << l << c << " " << n << "\n";
-        } else {
-            if (temExtra(iss)) {
-                std::cout << "Sintaxe: lsolo <lc> [n]\n";
-                return true;
-            }
-            std::cout << "Comando valido: lsolo " << l << c << "\n";
         }
         return true;
     }
+
 
     // -------------------- colhe <lc> --------------------
     if (cmd == "colhe") {
@@ -240,9 +346,17 @@ bool Comando::executa() {
             std::cout << "Posicao invalida. Use duas letras (a..z)\n";
             return true;
         }
-        std::cout << "Comando valido: colhe " << l << c << "\n";
+
+        if (!jardim->temJardineiro()) {
+            std::cout << "ERRO: O jardineiro ainda nao entrou. Use: entra <lc>\n";
+            return true;
+        }
+
+        bool ok = jardim->colhe(l, c);
+        if (ok) jardim->mostra();
         return true;
     }
+
 
     // -------------------- planta <lc> <tipo> --------------------
     if (cmd == "planta") {
@@ -261,6 +375,9 @@ bool Comando::executa() {
             return true;
         }
         std::cout << "Comando valido: planta " << l << c << " " << (char)std::tolower(tipo) << "\n";
+        jardim->planta(l, c, tipo);
+        jardim->mostra();
+
         return true;
     }
 
@@ -270,7 +387,30 @@ bool Comando::executa() {
             std::cout << "Sintaxe: larga (sem parametros)\n";
             return true;
         }
-        std::cout << "Comando valido: larga\n";
+        if (!jardim->temJardineiro()) {
+            std::cout << "ERRO: O jardineiro ainda nao entrou. Use: entra <lc>\n";
+            return true;
+        }
+
+        Jardineiro* j = jardim->getJardineiro();
+        if (!j->temFerramenta()) {
+            std::cout << "Nao tem ferramenta para largar.\n";
+            return true;
+        }
+
+        Posicao pj = j->getPosicao();
+        Solo& s = jardim->getSolo(pj.getL(), pj.getC());
+
+        if (s.temFerramenta()) {
+            std::cout << "ERRO: Ja existe uma ferramenta no chao nesta posicao.\n";
+            return true;
+        }
+
+        Ferramenta* f = j->largaFerramenta();
+        s.setFerramenta(f);
+
+        std::cout << "Largou a ferramenta '" << f->getNome() << "'\n";
+        jardim->mostra();
         return true;
     }
 
@@ -285,9 +425,43 @@ bool Comando::executa() {
             std::cout << "'n' tem de ser > 0.\n";
             return true;
         }
-        std::cout << "Comando valido: pega " << n << "\n";
+        if (!jardim->temJardineiro()) {
+            std::cout << "ERRO: O jardineiro ainda nao entrou. Use: entra <lc>\n";
+            return true;
+        }
+
+        Jardineiro* j = jardim->getJardineiro();
+        Posicao pj = j->getPosicao();
+        Solo& s = jardim->getSolo(pj.getL(), pj.getC());
+
+        // CASO 1: há ferramenta no chão -> apanha
+        if (s.temFerramenta()) {
+            Ferramenta* f = s.removeFerramenta();
+
+            if (!j->temFerramenta()) {
+                j->pegaFerramenta(f);
+                std::cout << "Pegou na ferramenta (MAO) '" << f->getNome() << "'\n";
+            } else {
+                j->adicionaAoInventario(f);
+                std::cout << "Pegou na ferramenta (INV) '" << f->getNome() << "'\n";
+            }
+
+            jardim->mostra();
+            return true;
+        }
+
+        // CASO 2: não há ferramenta no chão -> usa o n para equipar do inventário
+        if (!j->equipaDoInventario(n)) {
+            std::cout << "ERRO: Nao existe ferramenta " << n << " no inventario.\n";
+            return true;
+        }
+
+        std::cout << "Ferramenta " << n << " equipada na MAO.\n";
+        jardim->mostra();
         return true;
     }
+
+
 
     // -------------------- compra <c> --------------------
     if (cmd == "compra") {
@@ -300,9 +474,39 @@ bool Comando::executa() {
             std::cout << "Tipo invalido. Use: g a t z\n";
             return true;
         }
-        std::cout << "Comando valido: compra " << (char)std::tolower(t) << "\n";
+
+        if (!jardim->temJardineiro()) {
+            std::cout << "ERRO: O jardineiro ainda nao entrou. Use: entra <lc>\n";
+            return true;
+        }
+
+        Jardineiro* j = jardim->getJardineiro();
+        if (j->temFerramenta()) {
+            std::cout << "ERRO: Ja tens uma ferramenta na mao. Usa: larga\n";
+            return true;
+        }
+
+        Ferramenta* nova = nullptr;
+        switch (std::tolower((unsigned char)t)) {
+            case 'g': nova = new Regador(); break;
+            case 'a': nova = new PacoteAdubo(); break;
+            case 't': nova = new TesouraPoda(); break;
+            case 'z': nova = new FerramentaZ(); break;
+            default: break;
+        }
+
+        if (!nova) {
+            std::cout << "ERRO: nao foi possivel criar a ferramenta.\n";
+            return true;
+        }
+
+        j->pegaFerramenta(nova); // mete na mão
+
+        std::cout << "Compraste '" << nova->getNome() << "' e ficou na tua mao.\n";
+        jardim->mostra();
         return true;
     }
+
 
     // -------------------- entra <lc> --------------------
     if (cmd == "entra") {
@@ -330,7 +534,12 @@ bool Comando::executa() {
             std::cout << "Sintaxe: sai (sem parametros)\n";
             return true;
         }
-        std::cout << "Comando valido: sai\n";
+        if (!jardim->temJardineiro()) {
+            std::cout << "O jardineiro ja esta fora.\n";
+            return true;
+        }
+        jardim->saiJardineiro();
+        jardim->mostra();
         return true;
     }
 
@@ -340,18 +549,24 @@ bool Comando::executa() {
             std::cout << "Sintaxe: " << cmd << " (sem parametros)\n";
             return true;
         }
-        std::cout << "Comando valido: mover " << cmd << "\n";
-        return true;
-    }
-
-    // -------------------- grava/recupera/apaga <nome> --------------------
-    if (cmd == "grava" || cmd == "recupera" || cmd == "apaga") {
-        std::string nome;
-        if (!(iss >> nome) || temExtra(iss)) {
-            std::cout << "Sintaxe: " << cmd << " <nome>\n";
+        if (!jardim->temJardineiro()) {
+            std::cout << "ERRO: O jardineiro ainda nao entrou. Use: entra <lc>\n";
             return true;
         }
-        std::cout << "Comando valido: " << cmd << " " << nome << "\n";
+
+        char dir = cmd[0]; // e d c b
+        // define o teu mapeamento (exemplo):
+        // e = esquerda, d = direita, c = cima, b = baixo
+        char real;
+        if (dir == 'e') real = 'o';       // oeste
+        else if (dir == 'd') real = 'e';  // este
+        else if (dir == 'c') real = 'n';  // norte
+        else real = 's';                  // sul
+
+        bool ok = jardim->getJardineiro()->mover(real, jardim->getLinhas(), jardim->getColunas());
+        if (!ok) std::cout << "Nao pode sair do jardim.\n";
+
+        jardim->mostra();
         return true;
     }
 

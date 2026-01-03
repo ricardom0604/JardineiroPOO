@@ -1,11 +1,9 @@
-//
-// Created by bruni on 23/10/2025.
-//
-
 #include "Planta.h"
 
+#include <iostream>
 
-Planta::Planta(float agua, int nutrientes, std::string beleza, char character):agua(agua), nutrientes(nutrientes),tipoBeleza(tipoBeleza), character(character){
+
+Planta::Planta(float agua, int nutrientes, std::string beleza, char character):character(character), agua(agua), nutrientes(nutrientes), tipoBeleza(beleza), contadorInstantes(0){
 }
 
 //===GETTERS===

@@ -1,15 +1,11 @@
-//
-// Created by bruni on 23/10/2025.
-//
-
 #ifndef FERRAMENTA_H
 #define FERRAMENTA_H
 #include <string>
 
-#include "Jardineiro.h"
+class Solo;
+class Jardineiro;
 
 using namespace std;
-class Solo;
 
 class Ferramenta{
 protected:

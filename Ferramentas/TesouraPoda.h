@@ -2,7 +2,6 @@
 #define TESOURAPODA_H
 
 #include "Ferramenta.h"
-#include "Jardineiro.h"
 
 class TesouraPoda : public Ferramenta {
 public:

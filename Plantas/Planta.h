@@ -1,7 +1,6 @@
 #ifndef PLANTA_H
 #define PLANTA_H
 
-#include <iostream>
 #include <string>
 #include "Posicao.h"
 

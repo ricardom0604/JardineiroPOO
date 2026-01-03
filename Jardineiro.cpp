@@ -1,13 +1,21 @@
-//
-// Created by bruni on 24/10/2025.
-//
-
 #include "Jardineiro.h"
 #include "Jardim.h"
 #include "Solo.h"
 #include "Posicao.h"
 #include "Ferramentas/Ferramenta.h"
 #include <iostream>
+
+Jardineiro::~Jardineiro() {
+    // apagar ferramenta na mão
+    delete naMao;
+    naMao = nullptr;
+
+    // apagar ferramentas do inventário
+    for (Ferramenta* f : inventario) {
+        delete f;
+    }
+    inventario.clear();
+}
 
 
 //======GETTERS=====
@@ -66,6 +74,68 @@ void Jardineiro::plantar() {
 void Jardineiro::usarFerramenta(char tipo) {
     std::cout << "Jardineiro a tentar usar ferramenta do tipo: " << tipo << "\n";
 }
+
+bool Jardineiro::pegaFerramenta(Ferramenta* f) {
+    if (!f) return false;
+
+    // se não tiver nada na mão -> vai para a mão
+    if (naMao == nullptr) {
+        naMao = f;
+        return true;
+    }
+
+    // senão, vai para a mochila
+    inventario.push_back(f);
+    return true;
+}
+
+Ferramenta* Jardineiro::largaFerramenta() {
+    Ferramenta* temp = naMao;
+    naMao = nullptr;
+    return temp;
+}
+
+void Jardineiro::listarFerramentas() const {
+    if (naMao) {
+        std::cout << "[MAO] ";
+        naMao->mostrarInfo();
+    } else {
+        std::cout << "[MAO] (vazio)\n";
+    }
+
+    if (inventario.empty()) {
+        std::cout << "[INV] (vazio)\n";
+    } else {
+        for (size_t i = 0; i < inventario.size(); i++) {
+            if (!inventario[i]) {
+                std::cout << "[INV " << (i + 1) << "] (nullptr)\n";
+                continue;
+            }
+            std::cout << "[INV " << (i + 1) << "] ";
+            inventario[i]->mostrarInfo();
+        }
+    }
+}
+
+
+bool Jardineiro::equipaDoInventario(int n) {
+    // n é 1..size
+    if (n <= 0 || n > (int)inventario.size()) return false;
+
+    Ferramenta* escolhida = inventario[n - 1];
+
+    // remove do inventário (mantendo ordem)
+    inventario.erase(inventario.begin() + (n - 1));
+
+    // swap: a da mão vai para inventário (se existir)
+    if (naMao != nullptr) {
+        inventario.push_back(naMao);
+    }
+
+    naMao = escolhida;
+    return true;
+}
+
 
 /*
 // Regar o Solo na posição 'p'

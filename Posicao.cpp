@@ -1,7 +1,3 @@
-//
-// Created by bruni on 11/12/2025.
-//
-
 #include "Posicao.h"
 #include <iostream>
 

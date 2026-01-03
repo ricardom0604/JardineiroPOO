@@ -1,7 +1,3 @@
-//
-// Created by bruni on 23/10/2025.
-//
-
 #include "Roseira.h"
 #include "iostream"
 #include "Jardim.h"
@@ -77,5 +73,7 @@ Planta* Roseira::tentaMultiplicar(Jardim& jardim, const Posicao& minhaPosicao) {
     return nullptr;
 }
 
-void Roseira::mostrarInfoPlanta() const {}
-
+void Roseira::mostrarInfoPlanta() const {
+    Planta::mostrarInfoPlanta();
+    std::cout << "Tipo: Roseira\n";
+}
