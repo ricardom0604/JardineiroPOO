@@ -98,9 +98,15 @@ void Comando::mostraAjuda() const {
 
 // LOOP PRINCIPAL (Lê apenas o teclado)
 bool Comando::executa() {
+    mostraAjuda();
+
     while (true) {
         std::string linha = obtemInput("Comando:");
-        if (!processaLinha(linha)) return false; // Se retornar false, o programa fecha (comando fim)
+
+        // Se processaLinha devolver false (porque escreveste 'fim'), o programa fecha
+        if (!processaLinha(linha)) {
+            return false;
+        }
     }
 }
 
@@ -118,6 +124,7 @@ bool Comando::processaLinha(std::string linha) {
     }
 
     // -------------------- jardim <n> <n> --------------------
+
     if (cmd == "jardim") {
         int lin, col;
         if (!leInt(iss, lin) || !leInt(iss, col) || temExtra(iss)) {
