@@ -4,6 +4,7 @@
 #include <string>
 #include "Jardim.h"
 
+//comentario para teste
 class Comando;
 
 class Simulador {
